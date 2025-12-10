@@ -36,6 +36,7 @@ There are Two options
 	npm install
 	npx playwright install
 	npm install chalk
+	npm install sharp
 🔹Option2(currently unavailable).  Install Docker 	then run:
 	docker build -t my-playwright-project . 			(Build the image)
 	docker run -v ./output:/app/output my-playwright-project  	(running)

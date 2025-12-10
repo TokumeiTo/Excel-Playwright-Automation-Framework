@@ -6,7 +6,6 @@ import path, { resolve } from "path";
 import { fileURLToPath } from "url";
 import { spawn } from "child_process";
 import chalk, { Chalk } from "chalk";
-import sizeOf from "image-size";
 import sharp from "sharp";
 
 // Helpers

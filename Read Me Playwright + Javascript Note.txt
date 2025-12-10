@@ -1,0 +1,80 @@
+Contents --> Techs( 1.Used technologies, 2.Workflow, 3.Needs for running Project)
+
+
+🔹🔹🔹Techs🔹🔹🔹
+1. JavaScript (Node.js Runtime)
+2. Playwright (Unlike Selenium, Playwright doesn't need to adjust browser version)
+→ The main end-to-end testing framework that drives browser automation (Chromium, Firefox, WebKit).
+→ Handles navigation, clicking, writing, waiting, screenshots, and element highlighting.
+3. ExcelJS
+→ Used to create and write the result Excel file (_result.xlsx) with screenshots and network logs.
+4. XLSX (SheetJS)
+→ Used to read Excel test scripts (.xlsx) to get test steps, selectors, and expected outcomes.
+5. File System and OS Interaction
+fs, path, and child_process (Node.js core modules)
+→ Used for:
+Reading/writing screenshot files
+Creating result folders
+Spawning the PowerShell progress bar
+6. PowerShell (via batch file)
+→ Shows a dynamic progress window while tests are running.
+→ The batch file (runner.bat) handles invoking Node.js script with arguments like browser, headless, and Excel file path.
+7. Batch File (.bat)
+→ Allows Windows users to run the test runner easily without opening Node manually.
+→ Passes arguments to runFromExcel.js (Excel files, browser, headless, progress file).
+8. Optional Libraries
+XLSX utils → Parsing Excel sheets into JSON arrays.
+ExcelJS Image embedding → Adding screenshots to result Excel.
+
+
+
+🔹🔹🔹Needs to Use🔹🔹🔹
+There are Two options
+🔹Option1.  Node.js must be installed (version ≥ 18 recommended) and
+        	   Playwright and Dependencies
+    How:   After cloning or copying the project folder, open the terminal in it and run:
+	npm install
+	npx playwright install
+	npm install chalk
+🔹Option2(currently unavailable).  Install Docker 	then run:
+	docker build -t my-playwright-project . 			(Build the image)
+	docker run -v ./output:/app/output my-playwright-project  	(running)
+
+🔹 If the device is Mac or Linux,
+It can be still run as framework, but: PowerShell progress bar won’t work.
+Everything else (Excel automation, screenshots, results) works fine.
+
+
+
+🔹🔹🔹Why should use PLAYWRIGHT over SELENIUM for this project🔹🔹🔹
+1. Network Capabilities 
+	- Playwright natively intercepts and listens to all network requests and responses.
+	- Selenium does not natively capture network traffic. To capture network requests/responses, we usually need:
+	BrowserMob Proxy (a separate proxy server)
+	Or Chrome DevTools Protocol (CDP) integration via Selenium (more complex)
+Both options add extra setup and can be fragile, especially if multiple browsers are involved.
+             ?Why Playwright is Preferable for Network Logging?
+	-Directly supported, works cross-browser (Chromium, Firefox, WebKit).
+	-Integrates seamlessly with our per-test logging in Excel.
+	-No external proxies or tools are required.
+	-Easy to track request-response timing, which is essential for reporting performance or detecting failures.
+
+2. Integration with Node.js & Excel
+     Node.js-based, using XLSX + ExcelJS.
+Playwright has first-class support in Node.js (async/await, modern JS). Selenium is JavaScript-compatible, but its Node.js ecosystem is older and more verbose.
+Advantage: Playwright → cleaner, modern async handling.
+
+3. Speed & Reliability
+Playwright is faster due to direct browser protocol control.
+Selenium uses WebDriver API, which is slightly slower and prone to timing issues.
+Advantage: Playwright → more reliable for headless execution and CI/CD pipelines.
+
+4. Headless & Headed Modes
+Playwright: Switching between headless and headed is just a parameter. Works seamlessly across browsers.
+Selenium: Headless mode is supported, but some browsers (like Safari/WebKit) require more configuration.
+ Advantage: Playwright → smoother multi-browser automation.
+
+5. Browser Support & Versions
+   Playwright: Bundles browsers internally (Chromium, Firefox, WebKit). We don’t need to install or manage browser versions separately. This makes our test setup more consistent across machines.
+   Selenium: Relies on installed browsers + corresponding drivers (chromedriver, geckodriver). We have to keep them in sync; mismatched versions break tests.
+Advantage: Playwright → easier setup, fewer version conflicts.

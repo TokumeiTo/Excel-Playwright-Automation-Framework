@@ -18,6 +18,7 @@ import { getTimestamp } from "../helpers/getTimestamp_YYYYMMDD_HHmmss.js";
 import { spinnerFrames, spinnerTick } from "../helpers/consoleLoading.js";
 import { rewriteStepErrorForUser } from "../helpers/readableError.js";
 import { getImageDimensions } from "../helpers/getImageSize.js";
+import { Console } from "console";
 
 try {
     // #region   --- Global Scope ---
@@ -352,22 +353,18 @@ try {
         // --- ExcelJS results workbook ---
         const resultsWorkbook = new ExcelJS.Workbook();
 
-        const wsNetwork = resultsWorkbook.addWorksheet("NetworkLog");
-        wsNetwork.columns = [
-            { header: "TestCase", key: "TestCase", width: 30 },
-            { header: "ActionType", key: "ActionType", width: 15 },
-            { header: "Selector/Value", key: "SelectorOrValue", width: 40 },
-            { header: "Method", key: "Method", width: 10 },
-            { header: "URL", key: "URL", width: 60 },
-            { header: "NetworkStatus", key: "NetworkStatus", width: 15 },
-        ];
-
         const wsConsole = resultsWorkbook.addWorksheet("Console Captures");
         wsConsole.columns = [
             { header: "TestCase", key: "TestCase", width: 30 },
             { header: "ConsoleType", key: "ConsoleType", width: 15 },
             { header: "Message", key: "Message", width: 80 },
         ];
+        wsConsole.getRow(1).font = { bold: true };
+        wsConsole.getRow(1).fill = {
+            type: "pattern",
+            pattern: "solid",
+            fgColor: { argb: "FFBDD7EE" } // pale blue
+        };
 
         // --- Run each row ---
         for (const rowRaw of rows) {
@@ -381,21 +378,6 @@ try {
             const ws = resultsWorkbook.addWorksheet(sheetName);
 
             let rowIndex = 10;
-
-            wsNetwork.addRow({
-                TestCase: testCaseName,
-                ActionType: "Click",
-                SelectorOrValue: "#submit",
-                Method: "POST",
-                URL: "https://example.com/api",
-                NetworkStatus: 200
-            });
-
-            wsConsole.addRow({
-                TestCase: testCaseName,
-                ConsoleType: "log",
-                Message: "Button clicked successfully"
-            });
 
             // --- Array to store all screenshots ---
             const screenshots = [];
@@ -955,6 +937,17 @@ try {
             const endTime = Date.now();
             record.Duration = (endTime - startTime) / 1000;
 
+            for (const msg of consoleMessages) {
+                wsConsole.addRow({
+                    TestCase: row.testCase || "Unnamed TestCase",
+                    ConsoleType: msg.type,
+                    Message: msg.text
+                });
+            }
+
+            // Clear console messages for next test case
+            consoleMessages.length = 0;
+
             // --- Add row in Excel ---
             ws.getColumn(1).width = 40;
             ws.getColumn(2).width = 75;
@@ -986,6 +979,7 @@ try {
             ws.getCell("A3").value = "Outcome";
             ws.getCell("A3").font = { bold: true };
             ws.getCell("B3").value = record.Outcome;
+            ws.getCell("B3").alignment = { wrapText: true };
 
             ws.getCell("A4").value = "Duration(s)";
             ws.getCell("A4").font = { bold: true };
@@ -1021,13 +1015,12 @@ try {
             // Clear console messages for next test case
             consoleMessages.length = 0;
 
-            let topOffset = 0;
             const startRow = rowIndex;
 
             ws.mergeCells(`A${startRow - 1}:C${startRow - 1}`);
             ws.getCell(`A${startRow - 1}`).value = "Screenshots";
             ws.getCell(`A${startRow - 1}`).alignment = { horizontal: "center" };
-            ws.getCell(`A${startRow - 1}`).font = { bold: true };
+            ws.getCell(`A${startRow - 1}`).font = { italic: true, bold: true };
             ws.getCell(`A${startRow - 1}`).fill = {
                 type: "pattern",
                 pattern: "solid",
@@ -1106,6 +1099,8 @@ try {
 
                 // --- Fill label row
                 ws.getCell(`A${rowIndex}`).value = shotName;
+                ws.getCell(`A${rowIndex}`).alignment = { wrapText: true };
+
                 // --- Fill background color
                 if (record.Result == "Pass") {
                     ws.getCell(`A${rowIndex}`).fill = {
@@ -1125,9 +1120,11 @@ try {
                     text: fullShotPath,       // the visible text
                     hyperlink: fullShotPath   // the actual clickable link
                 };
+                ws.getCell(`B${rowIndex}`).alignment = { wrapText: true };
                 ws.getCell(`B${rowIndex}`).font = { color: { argb: "FF0000FF" }, underline: true };
 
                 ws.getCell(`C${rowIndex}`).value = record.Outcome;
+                ws.getCell(`C${rowIndex}`).alignment = { wrapText: true };
 
                 // --- Prepare image row
                 const imageId = ws.workbook.addImage({ filename: fullShotPath, extension: "png" });
@@ -1166,29 +1163,11 @@ try {
                 fgColor: { argb: "FFBDD7EE" }//pale blue
             };
             ws.getCell(`A${rowIndex}`).alignment = { horizontal: "center" };
-            ws.getCell(`A${rowIndex}`).font = { bold: true };
+            ws.getCell(`A${rowIndex}`).font = { italic: true, bold: true };
             rowIndex++;
 
             // Column headers
             ws.getCell(`A${rowIndex}`).value = "ActionTypes";
-            ws.getCell(`B${rowIndex}`).value = "Selector/Value";
-            ws.getCell(`C${rowIndex}`).value = "Method";
-            ws.getCell(`D${rowIndex}`).value = "URL";
-            ws.getCell(`E${rowIndex}`).value = "NetworkStatus";
-            rowIndex++;
-
-            // Write current log entry only
-            ws.getCell(`A${rowIndex}`).value = logEntry.ActionType;
-            ws.getCell(`B${rowIndex}`).value = logEntry.SelectorOrValue;
-            ws.getCell(`C${rowIndex}`).value = logEntry.Method;
-            ws.getCell(`D${rowIndex}`).value = logEntry.URL;
-            ws.getCell(`E${rowIndex}`).value = logEntry.NetworkStatus;
-            rowIndex++;
-
-            // --- Write console messages to Console Captures sheet ---
-            // Section header
-            ws.mergeCells(`A${rowIndex}:E${rowIndex}`);
-            ws.getCell(`A${rowIndex}`).value = "Browser Console Log";
             ws.getCell(`A${rowIndex}`).fill = {
                 type: "pattern",
                 pattern: "solid",
@@ -1197,24 +1176,49 @@ try {
             ws.getCell(`A${rowIndex}`).alignment = { horizontal: "center" };
             ws.getCell(`A${rowIndex}`).font = { bold: true };
 
+            ws.getCell(`B${rowIndex}`).value = "Selector/Value";
+            ws.getCell(`B${rowIndex}`).fill = {
+                type: "pattern",
+                pattern: "solid",
+                fgColor: { argb: "FFBDD7EE" }//pale blue
+            };
+            ws.getCell(`B${rowIndex}`).alignment = { horizontal: "center" };
+            ws.getCell(`B${rowIndex}`).font = { bold: true };
+
+            ws.getCell(`C${rowIndex}`).value = "Method";
+            ws.getCell(`C${rowIndex}`).fill = {
+                type: "pattern",
+                pattern: "solid",
+                fgColor: { argb: "FFBDD7EE" }//pale blue
+            };
+            ws.getCell(`C${rowIndex}`).alignment = { horizontal: "center" };
+            ws.getCell(`C${rowIndex}`).font = { bold: true };
+
+            ws.getCell(`D${rowIndex}`).value = "URL";
+            ws.getCell(`D${rowIndex}`).fill = {
+                type: "pattern",
+                pattern: "solid",
+                fgColor: { argb: "FFBDD7EE" }//pale blue
+            };
+            ws.getCell(`D${rowIndex}`).alignment = { horizontal: "center" };
+            ws.getCell(`D${rowIndex}`).font = { bold: true };
+
+            ws.getCell(`E${rowIndex}`).value = "NetworkStatus";
+            ws.getCell(`E${rowIndex}`).fill = {
+                type: "pattern",
+                pattern: "solid",
+                fgColor: { argb: "FFBDD7EE" }//pale blue
+            };
+            ws.getCell(`E${rowIndex}`).alignment = { horizontal: "center" };
+            ws.getCell(`E${rowIndex}`).font = { bold: true };
             rowIndex++;
 
-            // Column headers
-            ws.getCell(`A${rowIndex}`).value = "ConsoleType";
-            ws.mergeCells(`B${rowIndex}:E${rowIndex}`);
-            ws.getCell(`B${rowIndex}`).value = "Message";
-            rowIndex++;
-
-            // Fill console messages
-            for (const msg of consoleMessages) {
-                ws.getCell(`A${rowIndex}`).value = msg.type;
-                ws.mergeCells(`B${rowIndex}:E${rowIndex}`);
-                ws.getCell(`B${rowIndex}`).value = msg.text;
-                rowIndex++;
-            }
-
-            // Adjust row height
-            ws.getRow(rowIndex - 1).height = topOffset; // adjust last used row
+            // Write current log entry only
+            ws.getCell(`A${rowIndex}`).value = `${logEntry.ActionType}`;
+            ws.getCell(`B${rowIndex}`).value = logEntry.SelectorOrValue;
+            ws.getCell(`C${rowIndex}`).value = logEntry.Method;
+            ws.getCell(`D${rowIndex}`).value = logEntry.URL;
+            ws.getCell(`E${rowIndex}`).value = logEntry.NetworkStatus;
 
             // --- Convert screenshot paths to relative paths from HTML file ---
             const relativeScreenshots = screenshots.map(s =>

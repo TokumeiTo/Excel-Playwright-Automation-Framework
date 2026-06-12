@@ -1,0 +1,73 @@
+=== Test Run Log Started at 🌸[Wed Jun 03 2026 10:39:16]🌸 ===
+🙈 Headless run: TRUE
+🌐 Browser: Chrome
+📂 Test file: C:\Users\25-00372\Desktop\v02_Playwright_Smart_Automation_TestingTool\v2_Playwright_Smart_Automation_TestingTool\tests\HLMS.xlsx
+📄 Progress file initialized at: C:\Users\25-00372\AppData\Local\Temp\test_progress.txt
+ℹ️ Total steps to run: 17
+💨 Test started: HLMS
+
+---------- 🎌 TestCase to run: (Go to Page) ----------
+📱 Device Type specified "Go to Page": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 1/17(Go To):: Navigated to: http://localhost/auth/login
+========== 🏁 Completed TestCase: (Go to Page) ==========
+
+---------- 🎌 TestCase to run: (Enter Username) ----------
+📱 Device Type specified "Enter Username": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 2/17(Write):: Filled input: id=_r_3_:00-00000
+⏳ Step 3/17(Highlight):: Highlighted: id=_r_3_
+========== 🏁 Completed TestCase: (Enter Username) ==========
+
+---------- 🎌 TestCase to run: (Enter Password) ----------
+📱 Device Type specified "Enter Password": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 4/17(Write):: Filled input: id=_r_4_:AdminLMS@2026
+⏳ Step 5/17(Highlight):: Highlighted: id=_r_4_
+========== 🏁 Completed TestCase: (Enter Password) ==========
+
+---------- 🎌 TestCase to run: (Click Login Button) ----------
+📱 Device Type specified "Click Login Button": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 6/17(Highlight):: Highlighted: xpath=//*[@id="root"]/div/div[3]/div/div/form/div[3]/button
+⏳ Step 7/17(Click):: Clicked: xpath=//*[@id="root"]/div/div[3]/div/div/form/div[3]/button
+⏳ Step 8/17(Wait):: Waited: 5000ms
+⏳ Step 9/17(Expected Outcome):: Checking expected outcome: URL contains 'http://localhost/home'
+========== 🏁 Completed TestCase: (Click Login Button) ==========
+
+---------- 🎌 TestCase to run: (Wait For Full Document) ----------
+📱 Device Type specified "Wait For Full Document": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 10/17(Wait For Document Loaded):: Waited for document to fully load!
+========== 🏁 Completed TestCase: (Wait For Full Document) ==========
+
+---------- 🎌 TestCase to run: (Change To DarkMode) ----------
+📱 Device Type specified "Change To DarkMode": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 11/17(Wait For Document Loaded):: Waited for document to fully load!
+⏳ Step 12/17(Highlight):: Highlighted: xpath=//*[@id="root"]/div/div[2]/header/div/div[2]/button[1]
+⏳ Step 13/17(Click):: Clicked: xpath=//*[@id="root"]/div/div[2]/header/div/div[2]/button[1]
+⏳ Step 14/17(Expected Outcome):: Checking expected outcome: stay
+========== 🏁 Completed TestCase: (Change To DarkMode) ==========
+
+---------- 🎌 TestCase to run: (Highlight ProfileMenu) ----------
+📱 Device Type specified "Highlight ProfileMenu": undefined
+📵 No device type specified, defaulting to 'Desktop Chrome'
+📃 Resolved device profile: {"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.186 Safari/537.36","viewport":{"width":1280,"height":720},"deviceScaleFactor":1,"isMobile":false,"hasTouch":false}
+⏳ Step 15/17(Wait For Document Loaded):: Waited for document to fully load!
+⏳ Step 16/17(Highlight):: Highlighted: xpath=//*[@id="root"]/div/div[1]/div/div[3]/div/div[2]/span/button
+⌛ Step 17/17(Wait):: Waited: 100ms
+========== 🏁 Completed TestCase: (Highlight ProfileMenu) ==========
+
+🎉 All tests completed! Progress marked at 100%
+✅ Browser closed
+🐇 Total run time: 0min 17s
+📄 Excel results saved: results\HLMS_[2026_06_03-10h39m16s]_results\HLMS_[2026_06_03-10h39m16s]_result.xlsx
+📄 HTML report saved: results\HLMS_[2026_06_03-10h39m16s]_results\HLMS_[2026_06_03-10h39m16s]_result.html
+✅ Finished test file: C:\Users\25-00372\Desktop\v02_Playwright_Smart_Automation_TestingTool\v2_Playwright_Smart_Automation_TestingTool\tests\HLMS.xlsx

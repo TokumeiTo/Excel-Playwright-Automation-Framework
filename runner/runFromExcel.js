@@ -18,7 +18,6 @@ import { getTimestamp } from "../helpers/getTimestamp_YYYYMMDD_HHmmss.js";
 import { spinnerFrames, spinnerTick } from "../helpers/consoleLoading.js";
 import { rewriteStepErrorForUser } from "../helpers/readableError.js";
 import { getImageDimensions } from "../helpers/getImageSize.js";
-import { Console } from "console";
 
 try {
     // #region   --- Global Scope ---
@@ -50,8 +49,8 @@ try {
     console.log(
         chalk.bold("🙈 Headless run: ") +
         (headless
-            ? chalk.green.bold("TRUE")
-            : chalk.red.bold("FALSE")
+            ? chalk.greenBright.bold("TRUE")
+            : chalk.green.bold("FALSE")
         )
     );
     runLog(`🙈 Headless run: ${headless ? "TRUE" : "FALSE"}`);
@@ -771,6 +770,7 @@ try {
                 if (row.select) await safeSelect(row.select);
                 if (row.selectbutton) await safeSelectButton(row.selectbutton);
                 if (row.click) await safeClick(row.click);
+                if (row.wait) await safeWait(row.wait);
                 if (row.expectedoutcome) {
                     const expectedParts = row.expectedoutcome
                         .split("&")
@@ -924,8 +924,6 @@ try {
                         record.Outcome = `Run Action: ${executedActions.join(",")}${record.Outcome ? "\n" + record.Outcome : ""}`;
                     }
                 }
-                if (row.wait) await safeWait(row.wait);
-
             } catch (err) {
                 record.Result = "Fail";
                 record.Outcome += `❌ Error: ${err.message}`;

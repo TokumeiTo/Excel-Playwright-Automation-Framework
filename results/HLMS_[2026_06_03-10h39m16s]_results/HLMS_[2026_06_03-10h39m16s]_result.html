@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Report - HLMS.xlsx</title>
+<style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 20px;
+        color: #222;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+        word-break: break-word;
+        white-space: normal;
+        max-width: 600px;
+    }
+
+    th {
+        background-color: #1976d2;
+        color: white;
+    }
+
+    tr.pass {
+        background-color: #e8f5e9;
+    }
+
+    tr.fail {
+        background-color: #ffebee;
+    }
+
+    details {
+        margin: 5px 0;
+    }
+
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+        color: #1976d2;
+    }
+
+    summary:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Screenshot thumbnails --- */
+    .thumbnail-wrapper {
+        display: inline-block;
+        margin: 4px;
+    }
+
+    .thumbnail {
+        width: 100px;
+        cursor: pointer;
+        border-radius: 4px;
+        box-shadow: 0 0 3px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease;
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.05);
+    }
+
+    /* --- Modal for enlarged screenshot --- */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-overlay img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+        box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    }
+
+    .modal-close {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        z-index: 1001;
+        font-weight: bold;
+    }
+
+    /* --- Network Table --- */
+    .network-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background: #fafafa;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .network-table th {
+        background-color: #f0f0f0;
+        color: #444;
+        text-align: left;
+        padding: 6px 8px;
+        border: 1px solid #ddd;
+    }
+
+    .network-table td {
+        padding: 6px 8px;
+        border: 1px solid #ddd;
+        word-break: break-all;
+        white-space: normal;
+        max-width: 300px;
+    }
+
+    /* Scrollable table for long network logs */
+    details > table {
+        max-height: 300px;
+        overflow-y: auto;
+        display: block;
+    }
+</style>
+
+</head>
+<body>
+<h1>📊 Test Report: HLMS.xlsx</h1>
+<div style="display: flex; justify-content: space-between; font-size:15px; padding: 20px;">
+<div>
+    <div><strong>Total Run Time:</strong> 0min 17s</div>
+    <div><strong>Browser:</strong> Chrome</div>
+</div>
+<div><strong>Generated on</strong>: Wed Jun 03 2026 10:39:35 GMT+0630 (Myanmar Time)</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Result</th>
+<th>Outcome</th>
+<th>Duration (s)</th>
+<th>Screenshots</th>
+<th>Device Type</th>
+</tr>
+</thead>
+<tbody>
+
+        <tr class="pass">
+            <td><strong> Go to Page </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td></td>
+            <td>3.40</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Go_to_Page_screenshot.png" data-full="screenshots/Go_to_Page_screenshot.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Go_to_Page_screenshot.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>GoTo</td>
+        <td>http://localhost/auth/login</td>
+        <td>GET</td>
+        <td>http://localhost/assets/roboto-latin-700-normal-CXeAXeti.woff2</td>
+        <td>200</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+        <tr class="pass">
+            <td><strong> Enter Username </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td>✅ Highlighted 1 element(s) successfully.</td>
+            <td>0.51</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Enter_Username_highlight.png" data-full="screenshots/Enter_Username_highlight.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Enter_Username_highlight.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>Write</td>
+        <td>id=_r_3_:00-00000</td>
+        <td>GET</td>
+        <td>http://localhost/assets/roboto-latin-700-normal-CXeAXeti.woff2</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>Highlight</td>
+        <td>id=_r_3_</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+        <tr class="pass">
+            <td><strong> Enter Password </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td>✅ Highlighted 1 element(s) successfully.</td>
+            <td>0.46</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Enter_Password_highlight.png" data-full="screenshots/Enter_Password_highlight.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Enter_Password_highlight.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>Write</td>
+        <td>id=_r_4_:AdminLMS@2026</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td>Highlight</td>
+        <td>id=_r_4_</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+        <tr class="pass">
+            <td><strong> Click Login Button </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td>Run Action: Highlight,Click,Wait
+✅ Highlighted 1 element(s) successfully.✅ Expected URL matched: http://localhost/home. </td>
+            <td>7.03</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Click_Login_Button_highlight.png" data-full="screenshots/Click_Login_Button_highlight.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Click_Login_Button_highlight.png</div>
+                    
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Click_Login_Button_page_url_matched.png" data-full="screenshots/Click_Login_Button_page_url_matched.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Click_Login_Button_page_url_matched.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>Highlight</td>
+        <td>xpath=//*[@id="root"]/div/div[3]/div/div/form/div[3]/button</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td>Click</td>
+        <td>xpath=//*[@id="root"]/div/div[3]/div/div/form/div[3]/button</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+        <tr class="pass">
+            <td><strong> Wait For Full Document </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td></td>
+            <td>0.69</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Wait_For_Full_Document_screenshot.png" data-full="screenshots/Wait_For_Full_Document_screenshot.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Wait_For_Full_Document_screenshot.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>DocumentLoaded</td>
+        <td>true</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+        <tr class="pass">
+            <td><strong> Change To DarkMode </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td>Run Action: DocumentLoaded,Highlight,Click
+✅ Highlighted 1 element(s) successfully.✅ Stayed on same page. </td>
+            <td>1.65</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Change_To_DarkMode_highlight.png" data-full="screenshots/Change_To_DarkMode_highlight.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Change_To_DarkMode_highlight.png</div>
+                    
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Change_To_DarkMode_page_url_stayed_same.png" data-full="screenshots/Change_To_DarkMode_page_url_stayed_same.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Change_To_DarkMode_page_url_stayed_same.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>DocumentLoaded</td>
+        <td>true</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td>Highlight</td>
+        <td>xpath=//*[@id="root"]/div/div[2]/header/div/div[2]/button[1]</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td>Click</td>
+        <td>xpath=//*[@id="root"]/div/div[2]/header/div/div[2]/button[1]</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+        <tr class="pass">
+            <td><strong> Highlight ProfileMenu </strong></td>
+        
+            <td><strong style="color:green;">Pass</strong></td>
+        
+            <td>✅ Highlighted 1 element(s) successfully.</td>
+            <td>1.11</td>
+            <td>
+                    <div class="thumbnail-wrapper">
+                        <div style="display:flex; position: relative; align-items:center; font-size: 13px;">
+                            <div style="transform: rotate(270deg); margin-top: 20px; color: #1976d2; font-weight: bold;">
+                                720 px
+                            </div>
+                            <div>
+                                <div style="text-align:center; font-weight: bold; color: #1976d2; height: 23px;">
+                                    1280 px
+                                </div>
+                                <img class="thumbnail" src="screenshots/Highlight_ProfileMenu_highlight.png" data-full="screenshots/Highlight_ProfileMenu_highlight.png" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:default">screenshots/Highlight_ProfileMenu_highlight.png</div>
+                    
+            </td>
+            <td><i>default</i></td>
+        </tr>
+
+        <tr><td colspan="6">
+        <details>
+        <summary>📡 Network Log</summary>
+        <table class="network-table">
+            <tr>
+                <th>ActionType</th>
+                <th>Selector/Value</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Status</th>
+            </tr>
+        
+    <tr>
+        <td>DocumentLoaded</td>
+        <td>true</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td>Highlight</td>
+        <td>xpath=//*[@id="root"]/div/div[1]/div/div[3]/div/div[2]/span/button</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+</details>
+</td></tr>
+</tbody>
+</table>
+
+<!-- Modal container at the end of <body> -->
+<div class="modal-overlay" id="modal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img id="modalImg" src="">
+</div>
+
+<script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalClose = document.getElementById("modalClose");
+
+    document.querySelectorAll(".thumbnail").forEach(img => {
+        img.addEventListener("click", () => {
+            modalImg.src = img.dataset.full; 
+            modal.style.display = "flex";
+        });
+    });
+
+    modalClose.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+# -------------------------
+# Node & Playwright Project
+# -------------------------
+
+# ALLOW the main project node_modules for restricted environment deployment
+# node_modules/ <-- Commented out so Git WILL upload your project dependencies
+
+# IGNORE the internal modules inside the portable Node folder
+Installation_Setups/node_modules/
+
+# Playwright test outputs
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.nyc_output/
+coverage/
+
+# Build artifacts
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Excel-based framework runtime files
+runtime/
+output/
+cache/
+*.xlsm
+~$*.xls  # Temporary locked excel files
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs (WebStorm, IntelliJ)
+.idea/
+
+# OS-generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Git (Never ignore the .gitignore file itself!)
+# .gitignore <-- Commented out so your ignore rules are tracked by Git

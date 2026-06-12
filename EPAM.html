@@ -5,96 +5,410 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Manual - Playwright Smart Automation TestingTool</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Colors & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Container Layout */
+        .main-container {
+            max-width: 56rem;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        /* Header Banner */
+        .main-header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 1.5rem;
+        }
+
+        .header-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: #818cf8;
+        }
+
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-top: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-top: 0.25rem;
+        }
+
+        /* Main Body Content */
+        .content-wrapper {
+            padding: 1.5rem;
+        }
+
+        .section-block {
+            margin-bottom: 2rem;
+        }
+
+        .section-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-b: 1px solid #64748b;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-index {
+            color: #4f46e5;
+        }
+
+        .text-paragraph {
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.625;
+        }
+
+        /* Inline Elements */
+        code.inline-code {
+            background-color: #f1f5f9;
+            color: #e11d48;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+        }
+
+        /* Table Architecture */
+        .table-responsive-container {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            margin-top: 0.75rem;
+        }
+
+        .data-table {
+            width: 100%;
+            text-align: left;
+            font-size: 0.75rem;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background-color: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            font-weight: 600;
+            padding: 0.75rem;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+            color: #475569;
+            vertical-align: top;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background-color: rgba(248, 250, 252, 0.5);
+        }
+
+        /* Specific Table Column Highlights */
+        .col-width-25 { width: 25%; }
+        .col-width-33 { width: 33.333%; }
+        .col-width-37 { width: 37.5%; }
+
+        .text-bold-slate {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .bg-old-setup {
+            color: #64748b;
+            background-color: rgba(241, 245, 249, 0.5);
+        }
+
+        .bg-new-tool {
+            color: #4338ca;
+            background-color: rgba(238, 242, 255, 0.3);
+        }
+
+        .cell-highlight-green {
+            background-color: rgba(238, 242, 255, 0.1);
+            font-weight: 500;
+            color: #0f172a;
+        }
+
+        .icon-emerald {
+            color: #059669;
+        }
+
+        .font-code-spec {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            color: #334155;
+        }
+
+        /* Code/Terminal Screens */
+        .terminal-block {
+            background-color: #020617;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .terminal-block pre {
+            white-space: pre;
+            text-align: left;
+            line-height: 1.25rem;
+        }
+
+        .text-terminal-green { color: #34d399; }
+        .text-terminal-indigo { color: #a5b4fc; }
+        .text-terminal-amber { color: #fbbf24; }
+        .text-terminal-comment { color: #64748b; }
+
+        /* Step Matrix Utility Labels */
+        .keyword-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 11px;
+        }
+
+        .keyword-badge {
+            background-color: #e0e7ff;
+            color: #4338ca;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+        }
+
+        .type-badge {
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 11px;
+            display: inline-block;
+        }
+
+        /* Device Matrix Flex Layout (Replaces Grid) */
+        .device-matrix-row {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            color: #334155;
+        }
+
+        .device-column {
+            flex: 1;
+        }
+
+        .device-column-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            color: #0f172a;
+            display: block;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.375rem;
+        }
+
+        .device-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 11px;
+            color: #475569;
+        }
+
+        .device-list li {
+            position: relative;
+            padding-left: 0.75rem;
+            margin-bottom: 0.125rem;
+        }
+
+        .device-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #94a3b8;
+        }
+
+        .text-scale-caption {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 10px;
+            color: #94a3b8;
+        }
+
+        /* Section Inner Headings */
+        .inner-sub-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            margin-top: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .inner-description {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Syntax Overrides */
+        .syntax-indigo { color: #4f46e5; }
+        .syntax-emerald { color: #059669; }
+
+        /* Media Queries for Desktop Polish */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+
+            .main-header {
+                padding: 2rem;
+            }
+
+            .main-title {
+                font-size: 1.875rem;
+            }
+
+            .content-wrapper {
+                padding: 2rem;
+            }
+
+            /* Responsive Device Matrix Viewports */
+            .device-matrix-row {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 font-sans antialiased p-4 md:p-8">
+<body>
 
-    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xs border border-slate-200 overflow-hidden">
+    <div class="main-container">
 
-        <!-- Header Banner -->
-        <header class="bg-slate-900 text-white p-6 md:p-8">
-            <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-indigo-400">
+        <header class="main-header">
+            <div class="header-badge">
                 <span>⚡</span> Excel-based_PlaywrightJs Automation Framework Suite
             </div>
-            <h1 class="text-2xl md:text-3xl font-extrabold mt-2">Framework Quick Start Manual</h1>
-            <p class="text-sm text-slate-400 mt-1">Selenium -> Playwright + ExcelBased and Custom reports</p>
+            <h1 class="main-title">Framework Quick Start Manual</h1>
+            <p class="header-subtitle">Selenium -> Playwright + ExcelBased and Custom reports</p>
         </header>
 
-        <!-- Main Content Matrix -->
-        <main class="p-6 md:p-8 space-y-8">
+        <main class="content-wrapper">
 
-            <!-- 1. System Overview -->
-            <section class="space-y-4">
-                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
-                    <span class="text-indigo-600">01 /</span> Overview & Purpose
+            <section class="section-block">
+                <h2 class="section-title">
+                    <span class="section-index">01 /</span> Overview & Purpose
                 </h2>
-                <p class="text-sm text-slate-600 leading-relaxed">
+                <p class="text-paragraph">
                     The <strong>Playwright Smart Automation TestingTool</strong> executes automated frontend scenarios
-                    driven directly out of structured Microsoft Excel spreadsheets (<code
-                        class="bg-slate-100 text-rose-600 px-1 py-0.5 rounded font-mono text-xs">.xlsx</code>). By
+                    driven directly out of structured Microsoft Excel spreadsheets (<code class="inline-code">.xlsx</code>). By
                     migrating from legacy Selenium structures to a modern Playwright architecture, the framework
                     delivers faster execution speeds, robust logging, and flexible execution modes without changing core
                     engine code.
                 </p>
 
-                <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs mt-3">
-                    <table class="w-full text-left text-xs border-collapse">
-                        <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                <div class="table-responsive-container">
+                    <table class="data-table">
+                        <thead>
                             <tr>
-                                <th class="p-3 w-1/4">Capability / Feature</th>
-                                <th class="p-3 w-3/8 text-slate-500 bg-slate-100/50">Old Selenium Setup</th>
-                                <th class="p-3 w-3/8 text-indigo-700 bg-indigo-50/30">New Playwright Smart Tool</th>
+                                <th class="col-width-25">Capability / Feature</th>
+                                <th class="col-width-37 bg-old-setup">Old Selenium Setup</th>
+                                <th class="col-width-37 bg-new-tool">New Playwright Smart Tool</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-100 text-slate-600">
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Speed & Footprint</td>
-                                <td class="p-3 bg-slate-100/20 text-slate-500">Heavy, slow execution with high driver
-                                    overhead.</td>
-                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900 flex items-center gap-1.5">
-                                    <span class="text-emerald-600">⚡</span> Fast, lightweight asynchronous architecture.
+                        <tbody>
+                            <tr>
+                                <td class="text-bold-slate">Speed & Footprint</td>
+                                <td class="bg-old-setup">Heavy, slow execution with high driver overhead.</td>
+                                <td class="cell-highlight-green">
+                                    <span class="icon-emerald">⚡</span> Fast, lightweight asynchronous architecture.
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Execution Modes</td>
-                                <td class="p-3 bg-slate-100/20 text-slate-500">Rigid configuration, difficult headless
-                                    switching.</td>
-                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                            <tr>
+                                <td class="text-bold-slate">Execution Modes</td>
+                                <td class="bg-old-setup">Rigid configuration, difficult headless switching.</td>
+                                <td class="cell-highlight-green">
                                     Fully runnable in both <strong>Headed</strong> and <strong>Headless</strong> modes.
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Error Handling</td>
-                                <td class="p-3 bg-slate-100/20 text-slate-500">Vague stack traces, painful
-                                    troubleshooting.</td>
-                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                            <tr>
+                                <td class="text-bold-slate">Error Handling</td>
+                                <td class="bg-old-setup">Vague stack traces, painful troubleshooting.</td>
+                                <td class="cell-highlight-green">
                                     Clear, human-readable error logs generated automatically.
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Telemetry Logs</td>
-                                <td class="p-3 bg-slate-100/20 text-slate-500">Limited to basic application exceptions.
-                                </td>
-                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
-                                    Deep internal <strong>Console logs</strong> and <strong>Network log</strong>
-                                    capture.
+                            <tr>
+                                <td class="text-bold-slate">Telemetry Logs</td>
+                                <td class="bg-old-setup">Limited to basic application exceptions.</td>
+                                <td class="cell-highlight-green">
+                                    Deep internal <strong>Console logs</strong> and <strong>Network log</strong> capture.
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Test Specifications</td>
-                                <td class="p-3 bg-slate-100/20 text-slate-500">Hardcoded scripts requiring code changes.
-                                </td>
-                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                            <tr>
+                                <td class="text-bold-slate">Test Specifications</td>
+                                <td class="bg-old-setup">Hardcoded scripts requiring code changes.</td>
+                                <td class="cell-highlight-green">
                                     <strong>Excel-based</strong> matrix (easily changeable to suit any custom spec).
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Reporting Layer</td>
-                                <td class="p-3 bg-slate-100/20 text-slate-500">Standard console text or plain text
-                                    output logs.</td>
-                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                            <tr>
+                                <td class="text-bold-slate">Reporting Layer</td>
+                                <td class="bg-old-setup">Standard console text or plain text output logs.</td>
+                                <td class="cell-highlight-green">
                                     Premium <strong>Custom Reports</strong> with embedded screen captures and timelines.
                                 </td>
                             </tr>
@@ -103,75 +417,66 @@
                 </div>
             </section>
 
-            <!-- 2. Tech Layer -->
-            <section class="space-y-4">
-                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
-                    <span class="text-indigo-600">02 /</span> Technical Stack Configuration
+            <section class="section-block">
+                <h2 class="section-title">
+                    <span class="section-index">02 /</span> Technical Stack Configuration
                 </h2>
-                <p class="text-sm text-slate-600 leading-relaxed">
+                <p class="text-paragraph">
                     The framework leverages portable, cross-platform components that remove the need for system-wide
                     configuration or complex environment setups. The standalone architecture wraps all runtime
                     dependencies natively:
                 </p>
 
-                <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs mt-3">
-                    <table class="w-full text-left text-xs border-collapse">
-                        <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                <div class="table-responsive-container">
+                    <table class="data-table">
+                        <thead>
                             <tr>
-                                <th class="p-3 w-1/4">Layer</th>
-                                <th class="p-3 w-1/3 text-indigo-700">Technology / Engine</th>
-                                <th class="p-3">Core Purpose & Practical Benefit</th>
+                                <th class="col-width-25">Layer</th>
+                                <th class="col-width-33 bg-new-tool">Technology / Engine</th>
+                                <th>Core Purpose & Practical Benefit</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-100 text-slate-600">
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Test Runner</td>
-                                <td class="p-3 font-mono text-xs text-slate-700">Batch Script (.bat)</td>
-                                <td class="p-3">Provides a lightweight, user-friendly "Click and Run" entry point for
-                                    running automation pipelines instantly.</td>
+                        <tbody>
+                            <tr>
+                                <td class="text-bold-slate">Test Runner</td>
+                                <td class="font-code-spec">Batch Script (.bat)</td>
+                                <td>Provides a lightweight, user-friendly "Click and Run" entry point for running automation pipelines instantly.</td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Language</td>
-                                <td class="p-3 font-mono text-xs text-slate-700">JavaScript (Node.js)</td>
-                                <td class="p-3">Ensures rapid, asynchronous scenario processing and event-driven data
-                                    execution tracking.</td>
+                            <tr>
+                                <td class="text-bold-slate">Language</td>
+                                <td class="font-code-spec">JavaScript (Node.js)</td>
+                                <td>Ensures rapid, asynchronous scenario processing and event-driven data execution tracking.</td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Report Layer</td>
-                                <td class="p-3 font-mono text-xs text-slate-700">Custom Reporter Engine</td>
-                                <td class="p-3">Compiles unified validation data across distinct channels
-                                    simultaneously: <strong>Excel reports</strong>, <strong>HTML dashboards</strong>,
-                                    and userfriendly readable <strong>log streams and errors</strong>.</td>
+                            <tr>
+                                <td class="text-bold-slate">Report Layer</td>
+                                <td class="font-code-spec">Custom Reporter Engine</td>
+                                <td>Compiles unified validation data across distinct channels simultaneously: <strong>Excel reports</strong>, <strong>HTML dashboards</strong>, and userfriendly readable <strong>log streams and errors</strong>.</td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Test Data Store</td>
-                                <td class="p-3 font-mono text-xs text-slate-700">Excel-Based Format (.xlsx)</td>
-                                <td class="p-3">Decouples core programmatic drivers from specification sets, maintaining
-                                    readable step schemas inside simple sheets.</td>
+                            <tr>
+                                <td class="text-bold-slate">Test Data Store</td>
+                                <td class="font-code-spec">Excel-Based Format (.xlsx)</td>
+                                <td>Decouples core programmatic drivers from specification sets, maintaining readable step schemas inside simple sheets.</td>
                             </tr>
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 font-semibold text-slate-900">Browser Drivers</td>
-                                <td class="p-3 font-mono text-xs text-slate-700">Edge, Chrome, Firefox, WebKit</td>
-                                <td class="p-3">Eliminates manual driver version sync issues. Playwright handles
-                                    multi-browser container configurations internally.</td>
+                            <tr>
+                                <td class="text-bold-slate">Browser Drivers</td>
+                                <td class="font-code-spec">Edge, Chrome, Firefox, WebKit</td>
+                                <td>Eliminates manual driver version sync issues. Playwright handles multi-browser container configurations internally.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- 3. Folder Layout -->
-            <section class="space-y-3">
-                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
-                    <span class="text-indigo-600">03 /</span> Directory Architecture
+            <section class="section-block">
+                <h2 class="section-title">
+                    <span class="section-index">03 /</span> Directory Architecture
                 </h2>
-                <div
-                    class="bg-slate-950 rounded-xl p-4 font-mono text-xs text-emerald-400 overflow-x-auto shadow-inner">
-                    <pre class="whitespace-pre overflow-x-auto text-left block leading-5">📂 EXCEL-PLAYWRIGHT-AUTOMATION-FRAMEWORK/
+                <div class="terminal-block text-terminal-green">
+                    <pre>📂 EXCEL-PLAYWRIGHT-AUTOMATION-FRAMEWORK/
 ├── 📄 dockerfile
-├── 📄 ProgressWindow.ps1               <span class="text-slate-500">// If Headed Mode, ProgressWindow will appear</span>
-├── 📄 runner.bat                       <span class="text-slate-500">// Main Runner batch file. Click and Run</span>
-├── 📂 helpers/                         <span class="text-slate-500">// Reusable components</span>
+├── 📄 ProgressWindow.ps1               <span class="text-terminal-comment">// If Headed Mode, ProgressWindow will appear</span>
+├── 📄 runner.bat                       <span class="text-terminal-comment">// Main Runner batch file. Click and Run</span>
+├── 📂 helpers/                         <span class="text-terminal-comment">// Reusable components</span>
 │   ├── 📄 consoleLoading.js
 │   ├── 📄 generateAllure.js
 │   ├── 📄 generating_html-report.js
@@ -183,7 +488,7 @@
 │   ├── 📄 runLog.js
 │   ├── 📄 screenResolusion.js
 │   └── 📄 wait.js
-├── 📂 Installation_Setups/             <span class="text-slate-500">// Portable Setups</span>
+├── 📂 Installation_Setups/             <span class="text-terminal-comment">// Portable Setups</span>
 │   ├── 📄 corepack
 │   ├── 📄 corepack.cmd
 │   ├── 📄 install_tools.bat
@@ -195,8 +500,8 @@
 │   ├── 📄 npx
 │   ├── 📄 npx.cmd
 │   ├── 📄 npx.ps1
-│   └── 📂 node_modules/                <span class="text-slate-500">// Playwright + Libraries</span>
-├── 📂 results/                         <span class="text-slate-500">// Specific Result files</span>
+│   └── 📂 node_modules/                <span class="text-terminal-comment">// Playwright + Libraries</span>
+├── 📂 results/                         <span class="text-terminal-comment">// Specific Result files</span>
 │   └── 📂 HLMS_[2026_06_03-10h39m16s]_results/
 │       ├── 📄 HLMS_[2026_06_03-10h39m16s]_result.html
 │       ├── 📄 HLMS_[2026_06_03-10h39m16s]_result.xlsx
@@ -212,9 +517,9 @@
 │           ├── 📄 Go_to_Page_screenshot.png
 │           ├── 📄 Highlight_ProfileMenu_highlight.png
 │           └── 📄 Wait_For_Full_Document_screenshot.png
-├── 📂 runner/                          <span class="text-slate-500">// Main Execution file</span>
+├── 📂 runner/                          <span class="text-terminal-comment">// Main Execution file</span>
 │   └── 📄 runFromExcel.js
-└── 📂 tests/                           <span class="text-slate-500">// Excel-based Test specs</span>
+└── 📂 tests/                           <span class="text-terminal-comment">// Excel-based Test specs</span>
     ├── 📄 DisasterManagementTesting - Copy.xlsx
     ├── 📄 DisasterManagementTesting.xlsx
     ├── 📄 GoogleSearchTesting.xlsx
@@ -223,39 +528,37 @@
                 </div>
             </section>
 
-            <!-- 4. Architecture Flow -->
-            <section class="space-y-4">
-                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
-                    <span class="text-indigo-600">04 /</span> Operational Lifecycle Flow
+            <section class="section-block">
+                <h2 class="section-title">
+                    <span class="section-index">04 /</span> Operational Lifecycle Flow
                 </h2>
-                <div class="bg-slate-950 rounded-xl p-5 font-mono text-xs text-indigo-300 overflow-x-auto shadow-inner">
-                    <pre
-                        class="whitespace-pre overflow-x-auto text-left block leading-5"><span class="text-slate-500">[Phase 1: Initialization Pipeline]</span>
+                <div class="terminal-block text-terminal-indigo">
+                    <pre><span class="text-terminal-comment">[Phase 1: Initialization Pipeline]</span>
 🚀 <strong>Double-Click: runner.bat</strong>
    │
    └──▶ 📦 <strong>JavaScript Runner Ingestion Engine</strong>
-             Path: <span class="text-emerald-400">/runner/runFromExcel.js</span>
+             Path: <span class="text-terminal-green">/runner/runFromExcel.js</span>
 
    │
    ▼
-<span class="text-slate-500">[Phase 2: Configuration & Runtime Selector Checks]</span>
+<span class="text-terminal-comment">[Phase 2: Configuration & Runtime Selector Checks]</span>
 🎛️  <strong>Dynamic Profile Interceptor Options:</strong>
    ├── 🛡️ <strong>Execution UI Mode:</strong> 
-   │         ├── Headless Selected ──▶ 🖥️ Launch Custom Overlay (<span class="text-emerald-400">ProgressWindow.ps1</span>)
+   │         ├── Headless Selected ──▶ 🖥️ Launch Custom Overlay (<span class="text-terminal-green">ProgressWindow.ps1</span>)
    │         └── Headed Selected ───▶ 🌐 Instantiates Native Chromium / WebKit Instance
    │
    ├── 📂 <strong>Target Source Mapping:</strong> Supports single file specs or recursive folder sweeps
-   │         └── Target Source: <span class="text-emerald-400">/tests/HLMS.xlsx</span> (Example Specs)
+   │         └── Target Source: <span class="text-terminal-green">/tests/HLMS.xlsx</span> (Example Specs)
    │
    ├── 🌐 <strong>Target Browser Context:</strong> Chrome, Edge, Firefox, or Safari Emulators
    └── 📱 <strong>Device Type Lookup:</strong> Reads profile row maps to instantly override viewport/UA bounds
 
    │
    ▼
-<span class="text-slate-500">[Phase 3: Core Step Matrix Execution Loop]</span>
+<span class="text-terminal-comment">[Phase 3: Core Step Matrix Execution Loop]</span>
 🔄 <strong>Parsing Matrix Loops: Extract Excel Rows Line-By-Line</strong>
    │
-   ├── 🚀 Run Step Actions (<code class="text-amber-400">Go To</code>, <code class="text-amber-400">Write</code>, <code class="text-amber-400">Click</code>, <code class="text-amber-400">Highlight</code>, etc.)
+   ├── 🚀 Run Step Actions (<code class="text-terminal-amber">Go To</code>, <code class="text-terminal-amber">Write</code>, <code class="text-terminal-amber">Click</code>, <code class="text-terminal-amber">Highlight</code>, etc.)
    │
    └── 📝 <strong>Live Telemetry Monitors:</strong>
              ├── 🧾 <strong>Streaming Console Logs</strong> ──▶ Live Terminal Trace
@@ -263,189 +566,154 @@
 
    │
    ▼
-<span class="text-slate-500">[Phase 4: Artifact Compilation & Reporting Output Splits]</span>
+<span class="text-terminal-comment">[Phase 4: Artifact Compilation & Reporting Output Splits]</span>
 🏁 <strong>Execution Terminal Closure Wrap-Up</strong>
    │
-   └──▶ 💾 <strong>Target Directory Array:</strong> <span class="text-emerald-400">/results/</span>
+   └──▶ 💾 <strong>Target Directory Array:</strong> <span class="text-terminal-green">/results/</span>
              │
              └──📂 <strong>[TestFile]_[YYYY_MM_DD-HHhmms]_results/</strong>
-                  ├── 📂 <strong>/downloads/</strong>      <span class="text-slate-500">// Contains downloaded blobs generated during execution</span>
-                  ├── 📂 <strong>/screenshots/</strong>    <span class="text-slate-500">// Asset caps captured (Named with corresponding TestCase key)</span>
-                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.html</strong>  <span class="text-slate-500">// Custom Web Dashboard</span>
-                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.xlsx</strong>  <span class="text-slate-500">// Updated Results Sheet Matrix</span>
-                  └── 📄 <strong>[TestFile]_[Timestamp]_runLog.txt</strong>  <span class="text-slate-500">// Consolidated Trace Timeline Log</span></pre>
+                  ├── 📂 <strong>/downloads/</strong>      <span class="text-terminal-comment">// Contains downloaded blobs generated during execution</span>
+                  ├── 📂 <strong>/screenshots/</strong>    <span class="text-terminal-comment">// Asset caps captured (Named with corresponding TestCase key)</span>
+                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.html</strong>  <span class="text-terminal-comment">// Custom Web Dashboard</span>
+                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.xlsx</strong>  <span class="text-terminal-comment">// Updated Results Sheet Matrix</span>
+                  └── 📄 <strong>[TestFile]_[Timestamp]_runLog.txt</strong>  <span class="text-terminal-comment">// Consolidated Trace Timeline Log</span></pre>
                 </div>
             </section>
 
-            <!-- 5. Excel Spreadsheet Schema -->
-            <section class="space-y-6">
-                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
-                    <span class="text-indigo-600">05 /</span> Excel Row Schema Properties
+            <section class="section-block">
+                <h2 class="section-title">
+                    <span class="section-index">05 /</span> Excel Row Schema Properties
                 </h2>
-                <p class="text-sm text-slate-600 leading-relaxed">
+                <p class="text-paragraph">
                     The automation engine reads and interprets testing steps from Excel sheets dynamically based on the
                     column headers and syntax validation rules defined below.
                 </p>
 
-                <div class="space-y-2">
-                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                        <span class="text-indigo-500">📋</span> 1. Column Keys & Supported Action Types
+                <div>
+                    <h3 class="inner-sub-heading">
+                        <span>📋</span> 1. Column Keys & Supported Action Types
                     </h3>
-                    <p class="text-xs text-slate-500">
+                    <p class="inner-description">
                         The core engine maps rows using the exact columns specified in your test sheet headers:
                     </p>
-                    <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs bg-white">
-                        <table class="w-full text-left text-xs border-collapse">
-                            <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                    <div class="table-responsive-container">
+                        <table class="data-table">
+                            <thead>
                                 <tr>
-                                    <th class="p-3 w-1/4">Key Header</th>
-                                    <th class="p-3 w-1/4">Data Type</th>
-                                    <th class="p-3">Core Application Responsibility / Valid Keywords</th>
+                                    <th class="col-width-25">Key Header</th>
+                                    <th class="col-width-25">Data Type</th>
+                                    <th>Core Application Responsibility / Valid Keywords</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-slate-100 text-slate-600">
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 font-semibold text-slate-900 font-mono text-xs">ActionType Keys</td>
-                                    <td class="p-3"><span
-                                            class="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-mono text-[11px]">String</span>
-                                    </td>
-                                    <td class="p-3">
-                                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
-                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Go
-                                                To</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Write</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Keyboard</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Click</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Select</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">SelectButton</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Download</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Highlight</span>
-                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Outline
-                                                Color</span>
-                                            <span
-                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">ScreenShot</span>
-                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Wait</span>
-                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Wait For
-                                                Document Loaded</span>
+                            <tbody>
+                                <tr>
+                                    <td class="text-bold-slate font-code-spec">ActionType Keys</td>
+                                    <td><span class="type-badge">String</span></td>
+                                    <td>
+                                        <div class="keyword-badge-container">
+                                            <span class="keyword-badge">Go To</span>
+                                            <span class="keyword-badge">Write</span>
+                                            <span class="keyword-badge">Keyboard</span>
+                                            <span class="keyword-badge">Click</span>
+                                            <span class="keyword-badge">Select</span>
+                                            <span class="keyword-badge">SelectButton</span>
+                                            <span class="keyword-badge">Download</span>
+                                            <span class="keyword-badge">Highlight</span>
+                                            <span class="keyword-badge">Outline Color</span>
+                                            <span class="keyword-badge">ScreenShot</span>
+                                            <span class="keyword-badge">Wait</span>
+                                            <span class="keyword-badge">Wait For Document Loaded</span>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 font-semibold text-slate-900 font-mono text-xs">Expected Outcome</td>
-                                    <td class="p-3"><span
-                                            class="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-mono text-[11px]">String</span>
-                                    </td>
-                                    <td class="p-3 text-slate-500">Defines the target validation check text or assertion
-                                        condition state for report tracking.</td>
+                                <tr>
+                                    <td class="text-bold-slate font-code-spec">Expected Outcome</td>
+                                    <td><span class="type-badge">String</span></td>
+                                    <td>Defines the target validation check text or assertion condition state for report tracking.</td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 font-semibold text-slate-900 font-mono text-xs">Device Type</td>
-                                    <td class="p-3"><span
-                                            class="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-mono text-[11px]">String</span>
-                                    </td>
-                                    <td class="p-3">Controls target responsive execution layout width rules and agent
-                                        strings.</td>
+                                <tr>
+                                    <td class="text-bold-slate font-code-spec">Device Type</td>
+                                    <td><span class="type-badge">String</span></td>
+                                    <td>Controls target responsive execution layout width rules and agent strings.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                        <span class="text-emerald-600">⚙️</span> 2. Selector Prefix Parsing Rules
+                <div>
+                    <h3 class="inner-sub-heading">
+                        <span>⚙️</span> 2. Selector Prefix Parsing Rules
                     </h3>
-                    <p class="text-xs text-slate-500">
-                        The runner translates spreadsheet strings into native Playwright CSS/XPath locators via prefix
-                        parsing logic:
+                    <p class="inner-description">
+                        The runner translates spreadsheet strings into native Playwright CSS/XPath locators via prefix parsing logic:
                     </p>
-                    <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs bg-white">
-                        <table class="w-full text-left text-xs border-collapse">
-                            <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                    <div class="table-responsive-container">
+                        <table class="data-table">
+                            <thead>
                                 <tr>
-                                    <th class="p-3 w-1/3">Excel Value Prefix Syntax</th>
-                                    <th class="p-3 w-1/3">Parsed Output Result</th>
-                                    <th class="p-3">Target Matcher Context</th>
+                                    <th class="col-width-33">Excel Value Prefix Syntax</th>
+                                    <th class="col-width-33">Parsed Output Result</th>
+                                    <th>Target Matcher Context</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-slate-100 font-mono text-xs text-slate-600">
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">text=Submit</td>
-                                    <td class="p-3 text-emerald-600">text=Submit</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Direct inner text content mapping.
-                                    </td>
+                            <tbody class="font-code-spec">
+                                <tr>
+                                    <td class="syntax-indigo">text=Submit</td>
+                                    <td class="syntax-emerald">text=Submit</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Direct inner text content mapping.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">id=username</td>
-                                    <td class="p-3 text-emerald-600">#username</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Standard CSS element ID selector
-                                        conversion.</td>
+                                <tr>
+                                    <td class="syntax-indigo">id=username</td>
+                                    <td class="syntax-emerald">#username</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Standard CSS element ID selector conversion.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">name=email</td>
-                                    <td class="p-3 text-emerald-600">[name="email"]</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Standard form element name
-                                        attribute attribute block.</td>
+                                <tr>
+                                    <td class="syntax-indigo">name=email</td>
+                                    <td class="syntax-emerald">[name="email"]</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Standard form element name attribute attribute block.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">type=button</td>
-                                    <td class="p-3 text-emerald-600">[type="button"]</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Element element component type
-                                        descriptor query.</td>
+                                <tr>
+                                    <td class="syntax-indigo">type=button</td>
+                                    <td class="syntax-emerald">[type="button"]</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Element element component type descriptor query.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">class=btn-primary</td>
-                                    <td class="p-3 text-emerald-600">.btn-primary</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Standard CSS element styling class
-                                        dot shorthand conversion.</td>
+                                <tr>
+                                    <td class="syntax-indigo">class=btn-primary</td>
+                                    <td class="syntax-emerald">.btn-primary</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Standard CSS element styling class dot shorthand conversion.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">placeholder=Enter ID</td>
-                                    <td class="p-3 text-emerald-600">[placeholder="Enter ID"]</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Maps input text components by
-                                        placeholder strings directly.</td>
+                                <tr>
+                                    <td class="syntax-indigo">placeholder=Enter ID</td>
+                                    <td class="syntax-emerald">[placeholder="Enter ID"]</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Maps input text components by placeholder strings directly.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">xpath=//div[@id='app']</td>
-                                    <td class="p-3 text-emerald-600">//div[@id='app']</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Strips prefix string to pass XML
-                                        paths down natively.</td>
+                                <tr>
+                                    <td class="syntax-indigo">xpath=//div[@id='app']</td>
+                                    <td class="syntax-emerald">//div[@id='app']</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Strips prefix string to pass XML paths down natively.</span></td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="p-3 text-indigo-600">fullxpath=//body/div/form</td>
-                                    <td class="p-3 text-emerald-600">xpath=//body/div/form</td>
-                                    <td class="p-3 font-sans text-xs text-slate-500">Converts full-length explicit trees
-                                        to exact XPath selectors.</td>
+                                <tr>
+                                    <td class="syntax-indigo">fullxpath=//body/div/form</td>
+                                    <td class="syntax-emerald">xpath=//body/div/form</td>
+                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Converts full-length explicit trees to exact XPath selectors.</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                        <span class="text-amber-500">📱</span> 3. Device Emulation Mappings Matrix
+                <div>
+                    <h3 class="inner-sub-heading">
+                        <span>📱</span> 3. Device Emulation Mappings Matrix
                     </h3>
-                    <p class="text-xs text-slate-500">
-                        The platform supports responsive layout simulations. Pass any of these validated profile keys in
-                        the sheet's <code
-                            class="bg-slate-100 text-slate-800 px-1 rounded font-mono text-[11px]">Device Type</code>
-                        column:
+                    <p class="inner-description">
+                        The platform supports responsive layout simulations. Pass any of these validated profile keys in the sheet's <code class="inline-code">Device Type</code> column:
                     </p>
-                    <div
-                        class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono text-slate-700">
-                        <div>
-                            <span
-                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">🖥️
-                                Desktop Profiles</span>
-                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                    <div class="device-matrix-row">
+                        <div class="device-column">
+                            <span class="device-column-title">🖥️ Desktop Profiles</span>
+                            <ul class="device-list">
                                 <li>desktop chrome</li>
                                 <li>desktop chrome hidpi</li>
                                 <li>desktop firefox</li>
@@ -453,11 +721,9 @@
                                 <li>desktop edge</li>
                             </ul>
                         </div>
-                        <div>
-                            <span
-                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">🤖
-                                Samsung Galaxy</span>
-                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                        <div class="device-column">
+                            <span class="device-column-title">🤖 Samsung Galaxy</span>
+                            <ul class="device-list">
                                 <li>galaxy a55</li>
                                 <li>galaxy s24</li>
                                 <li>galaxy s9+</li>
@@ -466,25 +732,20 @@
                                 <li>galaxy tab s4</li>
                             </ul>
                         </div>
-                        <div>
-                            <span
-                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">🍏
-                                Apple iPhone / iPad</span>
-                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                        <div class="device-column">
+                            <span class="device-column-title">🍏 Apple iPhone / iPad</span>
+                            <ul class="device-list">
                                 <li>iphone 15 pro max</li>
                                 <li>iphone 14 / 13 / 12</li>
                                 <li>iphone x / xr / se</li>
-                                <li>ipad pro <span class="font-sans text-[10px] text-slate-400">(Custom CSS
-                                        scale)</span></li>
+                                <li>ipad pro <span class="text-scale-caption">(Custom CSS scale)</span></li>
                                 <li>ipad (gen 11 / 7 / 6)</li>
                                 <li>ipad mini</li>
                             </ul>
                         </div>
-                        <div>
-                            <span
-                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">📟
-                                Google Pixel & Legacy</span>
-                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                        <div class="device-column">
+                            <span class="device-column-title">📟 Google Pixel & Legacy</span>
+                            <ul class="device-list">
                                 <li>pixel 7 / 5 / 4 / 3</li>
                                 <li>pixel 2 xl</li>
                                 <li>nexus 7 / 6p / 5x / 4</li>

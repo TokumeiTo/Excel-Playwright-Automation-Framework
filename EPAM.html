@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Manual - Playwright Smart Automation TestingTool</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xs border border-slate-200 overflow-hidden">
+
+        <!-- Header Banner -->
+        <header class="bg-slate-900 text-white p-6 md:p-8">
+            <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-indigo-400">
+                <span>⚡</span> Excel-based_PlaywrightJs Automation Framework Suite
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold mt-2">Framework Quick Start Manual</h1>
+            <p class="text-sm text-slate-400 mt-1">Selenium -> Playwright + ExcelBased and Custom reports</p>
+        </header>
+
+        <!-- Main Content Matrix -->
+        <main class="p-6 md:p-8 space-y-8">
+
+            <!-- 1. System Overview -->
+            <section class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
+                    <span class="text-indigo-600">01 /</span> Overview & Purpose
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    The <strong>Playwright Smart Automation TestingTool</strong> executes automated frontend scenarios
+                    driven directly out of structured Microsoft Excel spreadsheets (<code
+                        class="bg-slate-100 text-rose-600 px-1 py-0.5 rounded font-mono text-xs">.xlsx</code>). By
+                    migrating from legacy Selenium structures to a modern Playwright architecture, the framework
+                    delivers faster execution speeds, robust logging, and flexible execution modes without changing core
+                    engine code.
+                </p>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs mt-3">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                            <tr>
+                                <th class="p-3 w-1/4">Capability / Feature</th>
+                                <th class="p-3 w-3/8 text-slate-500 bg-slate-100/50">Old Selenium Setup</th>
+                                <th class="p-3 w-3/8 text-indigo-700 bg-indigo-50/30">New Playwright Smart Tool</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Speed & Footprint</td>
+                                <td class="p-3 bg-slate-100/20 text-slate-500">Heavy, slow execution with high driver
+                                    overhead.</td>
+                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900 flex items-center gap-1.5">
+                                    <span class="text-emerald-600">⚡</span> Fast, lightweight asynchronous architecture.
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Execution Modes</td>
+                                <td class="p-3 bg-slate-100/20 text-slate-500">Rigid configuration, difficult headless
+                                    switching.</td>
+                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                                    Fully runnable in both <strong>Headed</strong> and <strong>Headless</strong> modes.
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Error Handling</td>
+                                <td class="p-3 bg-slate-100/20 text-slate-500">Vague stack traces, painful
+                                    troubleshooting.</td>
+                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                                    Clear, human-readable error logs generated automatically.
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Telemetry Logs</td>
+                                <td class="p-3 bg-slate-100/20 text-slate-500">Limited to basic application exceptions.
+                                </td>
+                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                                    Deep internal <strong>Console logs</strong> and <strong>Network log</strong>
+                                    capture.
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Test Specifications</td>
+                                <td class="p-3 bg-slate-100/20 text-slate-500">Hardcoded scripts requiring code changes.
+                                </td>
+                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                                    <strong>Excel-based</strong> matrix (easily changeable to suit any custom spec).
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Reporting Layer</td>
+                                <td class="p-3 bg-slate-100/20 text-slate-500">Standard console text or plain text
+                                    output logs.</td>
+                                <td class="p-3 bg-indigo-50/10 font-medium text-slate-900">
+                                    Premium <strong>Custom Reports</strong> with embedded screen captures and timelines.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 2. Tech Layer -->
+            <section class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
+                    <span class="text-indigo-600">02 /</span> Technical Stack Configuration
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    The framework leverages portable, cross-platform components that remove the need for system-wide
+                    configuration or complex environment setups. The standalone architecture wraps all runtime
+                    dependencies natively:
+                </p>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs mt-3">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                            <tr>
+                                <th class="p-3 w-1/4">Layer</th>
+                                <th class="p-3 w-1/3 text-indigo-700">Technology / Engine</th>
+                                <th class="p-3">Core Purpose & Practical Benefit</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Test Runner</td>
+                                <td class="p-3 font-mono text-xs text-slate-700">Batch Script (.bat)</td>
+                                <td class="p-3">Provides a lightweight, user-friendly "Click and Run" entry point for
+                                    running automation pipelines instantly.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Language</td>
+                                <td class="p-3 font-mono text-xs text-slate-700">JavaScript (Node.js)</td>
+                                <td class="p-3">Ensures rapid, asynchronous scenario processing and event-driven data
+                                    execution tracking.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Report Layer</td>
+                                <td class="p-3 font-mono text-xs text-slate-700">Custom Reporter Engine</td>
+                                <td class="p-3">Compiles unified validation data across distinct channels
+                                    simultaneously: <strong>Excel reports</strong>, <strong>HTML dashboards</strong>,
+                                    and userfriendly readable <strong>log streams and errors</strong>.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Test Data Store</td>
+                                <td class="p-3 font-mono text-xs text-slate-700">Excel-Based Format (.xlsx)</td>
+                                <td class="p-3">Decouples core programmatic drivers from specification sets, maintaining
+                                    readable step schemas inside simple sheets.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-900">Browser Drivers</td>
+                                <td class="p-3 font-mono text-xs text-slate-700">Edge, Chrome, Firefox, WebKit</td>
+                                <td class="p-3">Eliminates manual driver version sync issues. Playwright handles
+                                    multi-browser container configurations internally.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. Folder Layout -->
+            <section class="space-y-3">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
+                    <span class="text-indigo-600">03 /</span> Directory Architecture
+                </h2>
+                <div
+                    class="bg-slate-950 rounded-xl p-4 font-mono text-xs text-emerald-400 overflow-x-auto shadow-inner">
+                    <pre class="whitespace-pre overflow-x-auto text-left block leading-5">📂 EXCEL-PLAYWRIGHT-AUTOMATION-FRAMEWORK/
+├── 📄 dockerfile
+├── 📄 ProgressWindow.ps1               <span class="text-slate-500">// If Headed Mode, ProgressWindow will appear</span>
+├── 📄 runner.bat                       <span class="text-slate-500">// Main Runner batch file. Click and Run</span>
+├── 📂 helpers/                         <span class="text-slate-500">// Reusable components</span>
+│   ├── 📄 consoleLoading.js
+│   ├── 📄 generateAllure.js
+│   ├── 📄 generating_html-report.js
+│   ├── 📄 getImageSize.js
+│   ├── 📄 getTimestamp_YYYYMMDD_HHmmss.js
+│   ├── 📄 highlight.js
+│   ├── 📄 playwright_deviceProfile.js
+│   ├── 📄 readableError.js
+│   ├── 📄 runLog.js
+│   ├── 📄 screenResolusion.js
+│   └── 📄 wait.js
+├── 📂 Installation_Setups/             <span class="text-slate-500">// Portable Setups</span>
+│   ├── 📄 corepack
+│   ├── 📄 corepack.cmd
+│   ├── 📄 install_tools.bat
+│   ├── 📄 node.exe
+│   ├── 📄 nodevars.bat
+│   ├── 📄 npm
+│   ├── 📄 npm.cmd
+│   ├── 📄 npm.ps1
+│   ├── 📄 npx
+│   ├── 📄 npx.cmd
+│   ├── 📄 npx.ps1
+│   └── 📂 node_modules/                <span class="text-slate-500">// Playwright + Libraries</span>
+├── 📂 results/                         <span class="text-slate-500">// Specific Result files</span>
+│   └── 📂 HLMS_[2026_06_03-10h39m16s]_results/
+│       ├── 📄 HLMS_[2026_06_03-10h39m16s]_result.html
+│       ├── 📄 HLMS_[2026_06_03-10h39m16s]_result.xlsx
+│       ├── 📄 HLMS_[2026_06_03-10h39m16s]_runLog.txt
+│       ├── 📂 downloads/
+│       └── 📂 screenshots/
+│           ├── 📄 Change_To_DarkMode_highlight.png
+│           ├── 📄 Change_To_DarkMode_page_url_stayed_same.png
+│           ├── 📄 Click_Login_Button_highlight.png
+│           ├── 📄 Click_Login_Button_page_url_matched.png
+│           ├── 📄 Enter_Password_highlight.png
+│           ├── 📄 Enter_Username_highlight.png
+│           ├── 📄 Go_to_Page_screenshot.png
+│           ├── 📄 Highlight_ProfileMenu_highlight.png
+│           └── 📄 Wait_For_Full_Document_screenshot.png
+├── 📂 runner/                          <span class="text-slate-500">// Main Execution file</span>
+│   └── 📄 runFromExcel.js
+└── 📂 tests/                           <span class="text-slate-500">// Excel-based Test specs</span>
+    ├── 📄 DisasterManagementTesting - Copy.xlsx
+    ├── 📄 DisasterManagementTesting.xlsx
+    ├── 📄 GoogleSearchTesting.xlsx
+    ├── 📄 HLMS.xlsx
+    └── 📄 Login_logoutTesting.xlsx</pre>
+                </div>
+            </section>
+
+            <!-- 4. Architecture Flow -->
+            <section class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
+                    <span class="text-indigo-600">04 /</span> Operational Lifecycle Flow
+                </h2>
+                <div class="bg-slate-950 rounded-xl p-5 font-mono text-xs text-indigo-300 overflow-x-auto shadow-inner">
+                    <pre
+                        class="whitespace-pre overflow-x-auto text-left block leading-5"><span class="text-slate-500">[Phase 1: Initialization Pipeline]</span>
+🚀 <strong>Double-Click: runner.bat</strong>
+   │
+   └──▶ 📦 <strong>JavaScript Runner Ingestion Engine</strong>
+             Path: <span class="text-emerald-400">/runner/runFromExcel.js</span>
+
+   │
+   ▼
+<span class="text-slate-500">[Phase 2: Configuration & Runtime Selector Checks]</span>
+🎛️  <strong>Dynamic Profile Interceptor Options:</strong>
+   ├── 🛡️ <strong>Execution UI Mode:</strong> 
+   │         ├── Headless Selected ──▶ 🖥️ Launch Custom Overlay (<span class="text-emerald-400">ProgressWindow.ps1</span>)
+   │         └── Headed Selected ───▶ 🌐 Instantiates Native Chromium / WebKit Instance
+   │
+   ├── 📂 <strong>Target Source Mapping:</strong> Supports single file specs or recursive folder sweeps
+   │         └── Target Source: <span class="text-emerald-400">/tests/HLMS.xlsx</span> (Example Specs)
+   │
+   ├── 🌐 <strong>Target Browser Context:</strong> Chrome, Edge, Firefox, or Safari Emulators
+   └── 📱 <strong>Device Type Lookup:</strong> Reads profile row maps to instantly override viewport/UA bounds
+
+   │
+   ▼
+<span class="text-slate-500">[Phase 3: Core Step Matrix Execution Loop]</span>
+🔄 <strong>Parsing Matrix Loops: Extract Excel Rows Line-By-Line</strong>
+   │
+   ├── 🚀 Run Step Actions (<code class="text-amber-400">Go To</code>, <code class="text-amber-400">Write</code>, <code class="text-amber-400">Click</code>, <code class="text-amber-400">Highlight</code>, etc.)
+   │
+   └── 📝 <strong>Live Telemetry Monitors:</strong>
+             ├── 🧾 <strong>Streaming Console Logs</strong> ──▶ Live Terminal Trace
+             └── 🚨 <strong>Readable Error Handler</strong> ─▶ Translates browser stack anomalies into pure text
+
+   │
+   ▼
+<span class="text-slate-500">[Phase 4: Artifact Compilation & Reporting Output Splits]</span>
+🏁 <strong>Execution Terminal Closure Wrap-Up</strong>
+   │
+   └──▶ 💾 <strong>Target Directory Array:</strong> <span class="text-emerald-400">/results/</span>
+             │
+             └──📂 <strong>[TestFile]_[YYYY_MM_DD-HHhmms]_results/</strong>
+                  ├── 📂 <strong>/downloads/</strong>      <span class="text-slate-500">// Contains downloaded blobs generated during execution</span>
+                  ├── 📂 <strong>/screenshots/</strong>    <span class="text-slate-500">// Asset caps captured (Named with corresponding TestCase key)</span>
+                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.html</strong>  <span class="text-slate-500">// Custom Web Dashboard</span>
+                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.xlsx</strong>  <span class="text-slate-500">// Updated Results Sheet Matrix</span>
+                  └── 📄 <strong>[TestFile]_[Timestamp]_runLog.txt</strong>  <span class="text-slate-500">// Consolidated Trace Timeline Log</span></pre>
+                </div>
+            </section>
+
+            <!-- 5. Excel Spreadsheet Schema -->
+            <section class="space-y-6">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
+                    <span class="text-indigo-600">05 /</span> Excel Row Schema Properties
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    The automation engine reads and interprets testing steps from Excel sheets dynamically based on the
+                    column headers and syntax validation rules defined below.
+                </p>
+
+                <div class="space-y-2">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                        <span class="text-indigo-500">📋</span> 1. Column Keys & Supported Action Types
+                    </h3>
+                    <p class="text-xs text-slate-500">
+                        The core engine maps rows using the exact columns specified in your test sheet headers:
+                    </p>
+                    <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs bg-white">
+                        <table class="w-full text-left text-xs border-collapse">
+                            <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                                <tr>
+                                    <th class="p-3 w-1/4">Key Header</th>
+                                    <th class="p-3 w-1/4">Data Type</th>
+                                    <th class="p-3">Core Application Responsibility / Valid Keywords</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600">
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-semibold text-slate-900 font-mono text-xs">ActionType Keys</td>
+                                    <td class="p-3"><span
+                                            class="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-mono text-[11px]">String</span>
+                                    </td>
+                                    <td class="p-3">
+                                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Go
+                                                To</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Write</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Keyboard</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Click</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Select</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">SelectButton</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Download</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Highlight</span>
+                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Outline
+                                                Color</span>
+                                            <span
+                                                class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">ScreenShot</span>
+                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Wait</span>
+                                            <span class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded">Wait For
+                                                Document Loaded</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-semibold text-slate-900 font-mono text-xs">Expected Outcome</td>
+                                    <td class="p-3"><span
+                                            class="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-mono text-[11px]">String</span>
+                                    </td>
+                                    <td class="p-3 text-slate-500">Defines the target validation check text or assertion
+                                        condition state for report tracking.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-semibold text-slate-900 font-mono text-xs">Device Type</td>
+                                    <td class="p-3"><span
+                                            class="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-mono text-[11px]">String</span>
+                                    </td>
+                                    <td class="p-3">Controls target responsive execution layout width rules and agent
+                                        strings.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                        <span class="text-emerald-600">⚙️</span> 2. Selector Prefix Parsing Rules
+                    </h3>
+                    <p class="text-xs text-slate-500">
+                        The runner translates spreadsheet strings into native Playwright CSS/XPath locators via prefix
+                        parsing logic:
+                    </p>
+                    <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs bg-white">
+                        <table class="w-full text-left text-xs border-collapse">
+                            <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
+                                <tr>
+                                    <th class="p-3 w-1/3">Excel Value Prefix Syntax</th>
+                                    <th class="p-3 w-1/3">Parsed Output Result</th>
+                                    <th class="p-3">Target Matcher Context</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 font-mono text-xs text-slate-600">
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">text=Submit</td>
+                                    <td class="p-3 text-emerald-600">text=Submit</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Direct inner text content mapping.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">id=username</td>
+                                    <td class="p-3 text-emerald-600">#username</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Standard CSS element ID selector
+                                        conversion.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">name=email</td>
+                                    <td class="p-3 text-emerald-600">[name="email"]</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Standard form element name
+                                        attribute attribute block.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">type=button</td>
+                                    <td class="p-3 text-emerald-600">[type="button"]</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Element element component type
+                                        descriptor query.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">class=btn-primary</td>
+                                    <td class="p-3 text-emerald-600">.btn-primary</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Standard CSS element styling class
+                                        dot shorthand conversion.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">placeholder=Enter ID</td>
+                                    <td class="p-3 text-emerald-600">[placeholder="Enter ID"]</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Maps input text components by
+                                        placeholder strings directly.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">xpath=//div[@id='app']</td>
+                                    <td class="p-3 text-emerald-600">//div[@id='app']</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Strips prefix string to pass XML
+                                        paths down natively.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 text-indigo-600">fullxpath=//body/div/form</td>
+                                    <td class="p-3 text-emerald-600">xpath=//body/div/form</td>
+                                    <td class="p-3 font-sans text-xs text-slate-500">Converts full-length explicit trees
+                                        to exact XPath selectors.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                        <span class="text-amber-500">📱</span> 3. Device Emulation Mappings Matrix
+                    </h3>
+                    <p class="text-xs text-slate-500">
+                        The platform supports responsive layout simulations. Pass any of these validated profile keys in
+                        the sheet's <code
+                            class="bg-slate-100 text-slate-800 px-1 rounded font-mono text-[11px]">Device Type</code>
+                        column:
+                    </p>
+                    <div
+                        class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono text-slate-700">
+                        <div>
+                            <span
+                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">🖥️
+                                Desktop Profiles</span>
+                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                                <li>desktop chrome</li>
+                                <li>desktop chrome hidpi</li>
+                                <li>desktop firefox</li>
+                                <li>desktop safari</li>
+                                <li>desktop edge</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span
+                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">🤖
+                                Samsung Galaxy</span>
+                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                                <li>galaxy a55</li>
+                                <li>galaxy s24</li>
+                                <li>galaxy s9+</li>
+                                <li>galaxy s8 / s5</li>
+                                <li>galaxy note 3 / 2</li>
+                                <li>galaxy tab s4</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span
+                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">🍏
+                                Apple iPhone / iPad</span>
+                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                                <li>iphone 15 pro max</li>
+                                <li>iphone 14 / 13 / 12</li>
+                                <li>iphone x / xr / se</li>
+                                <li>ipad pro <span class="font-sans text-[10px] text-slate-400">(Custom CSS
+                                        scale)</span></li>
+                                <li>ipad (gen 11 / 7 / 6)</li>
+                                <li>ipad mini</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span
+                                class="font-sans font-bold text-slate-900 block border-b border-slate-200 pb-1 mb-1.5">📟
+                                Google Pixel & Legacy</span>
+                            <ul class="space-y-0.5 text-[11px] list-disc list-inside text-slate-600">
+                                <li>pixel 7 / 5 / 4 / 3</li>
+                                <li>pixel 2 xl</li>
+                                <li>nexus 7 / 6p / 5x / 4</li>
+                                <li>blackberry z30 / playbook</li>
+                                <li>microsoft lumia 950</li>
+                                <li>nokia lumia 520 / n9</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 italic">
+                        * Append <code
+                            class="bg-slate-100 text-slate-700 px-0.5 rounded font-mono text-[10px]">landscape</code> to
+                        any mobile device name to tilt the emulation container context frame horizontally (e.g., <code
+                            class="text-indigo-600">galaxy a55 landscape</code>).
+                    </p>
+                </div>
+            </section>
+
+            <!-- 6. Excel Spreadsheet Schema -->
+            <section class="space-y-8">
+                <div class="border-b border-slate-200 pb-3">
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 border-b border-slate-500 pb-2">
+                        <span class="text-indigo-600">06 /</span> End-to-End Operational Walkthrough
+                    </h2>
+                    <p class="text-sm text-slate-500 mt-1">
+                        A comprehensive, visual look at the test execution lifecycle, tracking data manipulation from
+                        configuration to artifact output generation.
+                    </p>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        01</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Test Case Sheet Matrix Entry</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The framework maps workflows out of a target spreadsheet schema. Rows interpret execution
+                            instructions matching explicit step keywords (e.g., <code>Go To</code>, <code>Write</code>,
+                            <code>Click</code>, <code>Highlight</code>) alongside dynamic responsivity changes defined
+                            inside the <strong>Device Type</strong> column header.
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-xl bg-white p-1">
+                            <img src="temp/excelEntry.png" alt="Excel Test Case Grid Entry Format Definition"
+                                class="w-full rounded-lg border border-slate-100 object-contain max-h-[240px]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        02</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Pipeline Initialization via Runner Batch
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Triggering the system starts by double-clicking <code>runner.bat</code> in the directory
+                            workspace root. This launches a command-line wrapper wrapper that initializes the portable
+                            Node.js execution runtime context instantly.
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-md bg-white p-1">
+                            <img src="temp/clickRunner.png" alt="Trigger Runner Batch Execution Environment Link Tree"
+                                class="w-full rounded-lg object-contain max-h-[220px]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        03</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">UI Interception, File Mapping, & Browser
+                            Engine Configuration Selection Dialogs</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The execution scripts launch structured interactive menu prompts across three sequential
+                            evaluation states:
+                        </p>
+
+                        <div class="space-y-4 max-w-md">
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 space-y-2">
+                                <span
+                                    class="text-[10px] uppercase tracking-wider font-bold text-indigo-600 font-mono block">Prompt
+                                    1: UI Mode</span>
+                                <div class="bg-white p-1 rounded-lg border border-slate-100">
+                                    <img src="temp/HeadChoose.png" alt="Head Choice Flag Configuration Mode Check"
+                                        class="w-full rounded border border-slate-200 shadow-3xs object-contain max-h-[140px]" />
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 space-y-2">
+                                <span
+                                    class="text-[10px] uppercase tracking-wider font-bold text-indigo-600 font-mono block">Prompt
+                                    2: Target File</span>
+                                <div class="bg-white p-1 rounded-lg border border-slate-100">
+                                    <img src="temp/FileChoose.png"
+                                        alt="Spreadsheet Test File Navigation Choice Selection Map"
+                                        class="w-full rounded border border-slate-200 shadow-3xs object-contain max-h-[140px]" />
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 space-y-2">
+                                <span
+                                    class="text-[10px] uppercase tracking-wider font-bold text-indigo-600 font-mono block">Prompt
+                                    3: Browser</span>
+                                <div class="bg-white p-1 rounded-lg border border-slate-100">
+                                    <img src="temp/BrowserChoose.png"
+                                        alt="Browser Driver Pipeline Selection Interceptor Card"
+                                        class="w-full rounded border border-slate-200 shadow-3xs object-contain max-h-[140px]" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        04</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Active Test Runner Processing with Device
+                            Viewport Emulation</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The automation engine extracts individual test matrix lines, evaluates step criteria, and
+                            applies precise cross-device styling restrictions on the fly. Viewports are dynamically
+                            scaled to match precise mobile or desktop profile properties (e.g., matching
+                            <code>ipad pro 11</code> layout rules).
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-mono text-slate-400 block font-bold">// Terminal Stream
+                                    Log Trace:</span>
+                                <img src="temp/RunningAsDeviceType.jfif"
+                                    alt="Live Console Initialization Output Log Data Stream"
+                                    class="w-full border border-slate-200 rounded-xl shadow-xs object-contain max-h-[220px]" />
+                            </div>
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-mono text-slate-400 block font-bold">// Live Emulator
+                                    Viewport Container:</span>
+                                <img src="temp/runningLog.png"
+                                    alt="Active App Viewport Frame Tracking Emulation Dimensions"
+                                    class="w-full border border-slate-200 rounded-xl shadow-xs object-contain max-h-[220px]" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        05</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Consolidated Run Log Trace Asset
+                            Generation</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            A definitive text trace file (<code>..._runLog.txt</code>) writes to disk inside the
+                            timestamped output directory folder array block. It indexes sequential execution steps,
+                            active target strings, browser actions, and elapsed lifecycle time metrics.
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-xl bg-white p-1">
+                            <img src="temp/runlogtxt.png" alt="Compiled RunLog Text Asset Record Tracking Stream"
+                                class="w-full rounded-lg object-contain max-h-[240px]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        06</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Multi-Channel Result Compilation Output
+                            Workspace</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Upon run termination, the framework creates a time-stamped directory under
+                            <code>/results/</code>. This packages image assets, downloads, and multiple structured file
+                            outputs together:
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-xl bg-white p-1">
+                            <img src="/temp/Results.png"
+                                alt="Result Package Output Workspace Structural Folder Tree Map View"
+                                class="w-full rounded-lg object-contain max-h-[260px]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        07</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Low-Level Console Captures Log Tab
+                            Tracking</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The framework isolates browser network streams and captures internal console errors,
+                            warnings, and standard info evaluations, rendering them inside a clean telemetry data tab
+                            block.
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-xl bg-white p-1">
+                            <img src="temp/ConsoleCapture.png"
+                                alt="Console Captures Telemetry Sheet View Display Log Output"
+                                class="w-full rounded-lg object-contain max-h-[240px]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        08</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Updated Excel Results Matrix Compilation
+                            Sheet</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The core runner stamps test status values directly back into a duplicate copy of your
+                            tracking template sheet, outputting a clean sheet matrix labeled
+                            <code>..._result.xlsx</code>.
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-xl bg-white p-1">
+                            <img src="temp/htmlReport.png"
+                                alt="Excel Spreadsheet Result Matrix Validation Tab Columns Map"
+                                class="w-full rounded-lg object-contain max-h-[240px]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-8 before:absolute before:left-3 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 last:before:hidden">
+                    <div
+                        class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-600 flex items-center justify-center text-xs font-bold text-indigo-700 font-mono">
+                        09</div>
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-slate-800 font-sans">Interactive HTML Report Dashboard
+                            Generation</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The web reporter combines structural tracking metadata, interactive dashboard navigation
+                            tabs, step status summaries, highlighted media screenshots, and low-level API split metrics
+                            within a single file dashboard:
+                        </p>
+                        <div
+                            class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs max-w-xl bg-white p-1">
+                            <img src="temp/HtmlResult.png"
+                                alt="Excel Spreadsheet Result Matrix Validation Tab Columns Map"
+                                class="w-full rounded-lg object-contain max-h-[240px]" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-slate-50 border-t border-slate-100 text-center py-4 text-[11px] text-slate-400 font-medium">
+            Internal Systems Testing Utility Documentation Manual Suite &bull; 2026
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

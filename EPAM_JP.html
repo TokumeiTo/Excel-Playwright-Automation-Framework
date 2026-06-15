@@ -432,68 +432,63 @@
         <main class="content-wrapper">
             <section class="section-block">
                 <h2 class="section-title">
-                    <span class="section-index">01 /</span> Overview & Purpose
+                    <span class="section-index">01 /</span> 概要と目的 (Overview & Purpose)
                 </h2>
                 <p class="text-paragraph">
-                    The <strong>Playwright Smart Automation TestingTool</strong> executes automated frontend scenarios
-                    driven directly out of structured Microsoft Excel spreadsheets (<code
-                        class="inline-code">.xlsx</code>). By
-                    migrating from legacy Selenium structures to a modern Playwright architecture, the framework
-                    delivers faster execution speeds, robust logging, and flexible execution modes without changing core
-                    engine code.
+                    <strong>Playwright スマート自動テストツール</strong>は、Microsoft Excelスプレッドシート（<code
+                        class="inline-code">.xlsx</code>）で定義されたテストシナリオを直接読み込み、フロントエンドの自動テストを実行する画期的なフレームワークです。従来のレガシーなSelenium構成から最新のPlaywrightアーキテクチャへと移行したことで、コアエンジンのコードを変更することなく、<strong>劇的な実行速度の向上、詳細なログ記録、状況に応じた柔軟な実行モード</strong>を実現しました。
                 </p>
 
                 <div class="table-responsive-container">
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th class="col-width-25">Capability / Feature</th>
-                                <th class="col-width-37 bg-old-setup">Old Selenium Setup</th>
-                                <th class="col-width-37 bg-new-tool">New Playwright Smart Tool</th>
+                                <th class="col-width-25">機能・特徴 (Capability)</th>
+                                <th class="col-width-37 bg-old-setup">従来のSelenium構成</th>
+                                <th class="col-width-37 bg-new-tool">新Playwrightスマートツール</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-bold-slate">Speed & Footprint</td>
-                                <td class="bg-old-setup">Heavy, slow execution with high driver overhead.</td>
+                                <td class="text-bold-slate">実行速度と負荷</td>
+                                <td class="bg-old-setup">動作が重く、ドライバーのオーバーヘッドが大きいため実行に時間がかかる。</td>
                                 <td class="cell-highlight-green">
-                                    <span class="icon-emerald">⚡</span> Fast, lightweight asynchronous architecture.
+                                    <span class="icon-emerald">⚡</span> 高速かつ軽量な非同期アーキテクチャを採用。
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Execution Modes</td>
-                                <td class="bg-old-setup">Rigid configuration, difficult headless switching.</td>
+                                <td class="text-bold-slate">実行モード</td>
+                                <td class="bg-old-setup">設定が硬直的であり、ヘッドレスモードへの切り替えが煩雑。</td>
                                 <td class="cell-highlight-green">
-                                    Fully runnable in both <strong>Headed</strong> and <strong>Headless</strong> modes.
+                                    <strong>有頭（Headed）</strong>モードと<strong>無頭（Headless）</strong>モードを簡単に切り替えて実行可能。
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Error Handling</td>
-                                <td class="bg-old-setup">Vague stack traces, painful troubleshooting.</td>
+                                <td class="text-bold-slate">エラーハンドリング</td>
+                                <td class="bg-old-setup">スタックトレースが曖昧で、トラブルシューティングに多大な時間を要する。</td>
                                 <td class="cell-highlight-green">
-                                    Clear, human-readable error logs generated automatically.
+                                    分かりやすく、人間が直感的に理解できるエラーログを自動生成。
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Telemetry Logs</td>
-                                <td class="bg-old-setup">Limited to basic application exceptions.</td>
+                                <td class="text-bold-slate">テレメトリー・ログ</td>
+                                <td class="bg-old-setup">基本的なアプリケーション例外の記録のみに限定。</td>
                                 <td class="cell-highlight-green">
-                                    Deep internal <strong>Console logs</strong> and <strong>Network log</strong>
-                                    capture.
+                                    ブラウザ内部の<strong>コンソールログ</strong>および<strong>ネットワークログ</strong>のディープキャプチャに対応。
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Test Specifications</td>
-                                <td class="bg-old-setup">Hardcoded scripts requiring code changes.</td>
+                                <td class="text-bold-slate">テスト仕様の定義</td>
+                                <td class="bg-old-setup">スクリプトがハードコードされており、変更のたびにコードの修正が必要。</td>
                                 <td class="cell-highlight-green">
-                                    <strong>Excel-based</strong> matrix (easily changeable to suit any custom spec).
+                                    <strong>Excelベース</strong>の管理マトリクスを採用。カスタム仕様に合わせて容易に変更・調整が可能。
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Reporting Layer</td>
-                                <td class="bg-old-setup">Standard console text or plain text output logs.</td>
+                                <td class="text-bold-slate">レポート機能</td>
+                                <td class="bg-old-setup">標準的なコンソール出力、または単純なテキストログのみ。</td>
                                 <td class="cell-highlight-green">
-                                    Premium <strong>Custom Reports</strong> with embedded screen captures and timelines.
+                                    スクリーンショットや実行タイムラインを内蔵した、視覚的で**高機能なカスタムレポート**を出力。
                                 </td>
                             </tr>
                         </tbody>
@@ -503,55 +498,47 @@
 
             <section class="section-block">
                 <h2 class="section-title">
-                    <span class="section-index">02 /</span> Technical Stack Configuration
+                    <span class="section-index">02 /</span> 技術スタック構成 (Technical Stack Configuration)
                 </h2>
                 <p class="text-paragraph">
-                    The framework leverages portable, cross-platform components that remove the need for system-wide
-                    configuration or complex environment setups. The standalone architecture wraps all runtime
-                    dependencies natively:
+                    本フレームワークは、システム全体への環境設定や複雑な環境構築を一切不要にする、ポータブルでクロスプラットフォームなコンポーネントを活用しています。スタンドアロン（独立型）アーキテクチャを採用したことで、すべての実行ランタイム依存関係がネイティブに内包されています。
                 </p>
 
                 <div class="table-responsive-container">
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th class="col-width-25">Layer</th>
-                                <th class="col-width-33 bg-new-tool">Technology / Engine</th>
-                                <th>Core Purpose & Practical Benefit</th>
+                                <th class="col-width-25">レイヤー</th>
+                                <th class="col-width-33 bg-new-tool">使用技術 / エンジン</th>
+                                <th>主な役割と実用的なメリット</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-bold-slate">Test Runner</td>
-                                <td class="font-code-spec">Batch Script (.bat)</td>
-                                <td>Provides a lightweight, user-friendly "Click and Run" entry point for running
-                                    automation pipelines instantly.</td>
+                                <td class="text-bold-slate">テストランナー</td>
+                                <td class="font-code-spec">バッチスクリプト (.bat)</td>
+                                <td>自動化パイプラインを即座に実行できる、軽量でユーザーフレンドリーな「クリック＆ラン」のエントリーポイント（起動口）を提供します。</td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Language</td>
+                                <td class="text-bold-slate">開発言語</td>
                                 <td class="font-code-spec">JavaScript (Node.js)</td>
-                                <td>Ensures rapid, asynchronous scenario processing and event-driven data execution
-                                    tracking.</td>
+                                <td>非同期処理による高速なシナリオ実行と、イベント駆動型のデータ実行トラッキング（追跡）を実現します。</td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Report Layer</td>
-                                <td class="font-code-spec">Custom Reporter Engine</td>
-                                <td>Compiles unified validation data across distinct channels simultaneously:
-                                    <strong>Excel reports</strong>, <strong>HTML dashboards</strong>, and userfriendly
-                                    readable <strong>log streams and errors</strong>.
+                                <td class="text-bold-slate">レポートレイヤー</td>
+                                <td class="font-code-spec">カスタムレポートエンジン</td>
+                                <td><strong>Excelレポート</strong>、<strong>HTMLダッシュボード</strong>、および人間が読みやすいユーザーフレンドリーな<strong>ストリームログとエラー出力</strong>という、異なるチャネルへの検証データを同時に一元編集・出力します。
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Test Data Store</td>
-                                <td class="font-code-spec">Excel-Based Format (.xlsx)</td>
-                                <td>Decouples core programmatic drivers from specification sets, maintaining readable
-                                    step schemas inside simple sheets.</td>
+                                <td class="text-bold-slate">テストデータストア</td>
+                                <td class="font-code-spec">Excelベース形式 (.xlsx)</td>
+                                <td>コアとなるプログラム要素（ドライバー）をテスト仕様書から切り離し、シンプルなシート内で視認性の高いステップスキーマを維持・管理できます。</td>
                             </tr>
                             <tr>
-                                <td class="text-bold-slate">Browser Drivers</td>
+                                <td class="text-bold-slate">ブラウザドライバー</td>
                                 <td class="font-code-spec">Edge, Chrome, Firefox, WebKit</td>
-                                <td>Eliminates manual driver version sync issues. Playwright handles multi-browser
-                                    container configurations internally.</td>
+                                <td>手動によるドライバーのバージョン同期問題を完全に解消。Playwrightが内部でマルチブラウザのコンテナ構成を自動制御します。</td>
                             </tr>
                         </tbody>
                     </table>
@@ -560,19 +547,18 @@
 
             <section class="section-block">
                 <h2 class="section-title">
-                    <span class="section-index">03 /</span> Directory Architecture
+                    <span class="section-index">03 /</span> ディレクトリ構成 (Directory Architecture)
                 </h2>
                 <p class="text-paragraph" style="margin-bottom:15px">
-                    This framework is designed with a simple design that clearly separates each function. It is designed
-                    to intuitively understand and manage various portable tools for environment setup, reusable helper
-                    scripts, and even where to output test results.
+                    本フレームワークは、機能ごとに明確に分離されたシンプルな設計になっています。環境構築用のポータブルな各種ツール、再利用可能なヘルパースクリプト、そしてテスト結果の出力先まで、直感的に把握・管理ができる構成です。
                 </p>
+
                 <div class="terminal-block text-terminal-green">
                     <pre>📂 EXCEL-PLAYWRIGHT-AUTOMATION-FRAMEWORK/
 ├── 📄 dockerfile
-├── 📄 ProgressWindow.ps1               <span class="text-terminal-comment">// If Headed Mode, ProgressWindow will appear</span>
-├── 📄 runner.bat                       <span class="text-terminal-comment">// Main Runner batch file. Click and Run</span>
-├── 📂 helpers/                         <span class="text-terminal-comment">// Reusable components</span>
+├── 📄 ProgressWindow.ps1               <span class="text-terminal-comment">// 有頭（Headed）モードの実行時に、進捗ウィンドウを表示するスクリプト</span>
+├── 📄 runner.bat                       <span class="text-terminal-comment">// メイン実行バッチファイル（クリックするだけで即座に実行可能）</span>
+├── 📂 helpers/                         <span class="text-terminal-comment">// 共通・再利用可能なヘルパーコンポーネント</span>
 │   ├── 📄 consoleLoading.js
 │   ├── 📄 generateAllure.js
 │   ├── 📄 generating_html-report.js
@@ -584,7 +570,7 @@
 │   ├── 📄 runLog.js
 │   ├── 📄 screenResolusion.js
 │   └── 📄 wait.js
-├── 📂 Installation_Setups/             <span class="text-terminal-comment">// Portable Setups</span>
+├── 📂 Installation_Setups/             <span class="text-terminal-comment">// ポータブル環境構築用セットアップファイル群</span>
 │   ├── 📄 corepack
 │   ├── 📄 corepack.cmd
 │   ├── 📄 install_tools.bat
@@ -596,8 +582,8 @@
 │   ├── 📄 npx
 │   ├── 📄 npx.cmd
 │   ├── 📄 npx.ps1
-│   └── 📂 node_modules/                <span class="text-terminal-comment">// Playwright + Libraries</span>
-├── 📂 results/                         <span class="text-terminal-comment">// Specific Result files</span>
+│   └── 📂 node_modules/                <span class="text-terminal-comment">// Playwright本体および各種依存ライブラリ</span>
+├── 📂 results/                         <span class="text-terminal-comment">// 実行ごとのテスト結果ファイル出力先</span>
 │   └── 📂 HLMS_[2026_06_03-10h39m16s]_results/
 │       ├── 📄 HLMS_[2026_06_03-10h39m16s]_result.html
 │       ├── 📄 HLMS_[2026_06_03-10h39m16s]_result.xlsx
@@ -613,9 +599,9 @@
 │           ├── 📄 Go_to_Page_screenshot.png
 │           ├── 📄 Highlight_ProfileMenu_highlight.png
 │           └── 📄 Wait_For_Full_Document_screenshot.png
-├── 📂 runner/                          <span class="text-terminal-comment">// Main Execution file</span>
+├── 📂 runner/                          <span class="text-terminal-comment">// メインのテスト実行制御ファイル</span>
 │   └── 📄 runFromExcel.js
-└── 📂 tests/                           <span class="text-terminal-comment">// Excel-based Test specs</span>
+└── 📂 tests/                           <span class="text-terminal-comment">// Excelベースのテスト仕様書（テストデータ）</span>
     ├── 📄 DisasterManagementTesting - Copy.xlsx
     ├── 📄 DisasterManagementTesting.xlsx
     ├── 📄 GoogleSearchTesting.xlsx
@@ -626,79 +612,78 @@
 
             <section class="section-block">
                 <h2 class="section-title">
-                    <span class="section-index">04 /</span> Operational Lifecycle Flow
+                    <span class="section-index">04 /</span> 実行ライフサイクルフロー (Operational Lifecycle Flow)
                 </h2>
                 <div class="terminal-block text-terminal-indigo">
-                    <pre><span class="text-terminal-comment">[Phase 1: Initialization Pipeline]</span>
-🚀 <strong>Double-Click: runner.bat</strong>
+                    <pre><span class="text-terminal-comment">[フェーズ 1: 初期化パイプライン]</span>
+🚀 <strong>ダブルクリック: runner.bat</strong>
    │
-   └──▶ 📦 <strong>JavaScript Runner Ingestion Engine</strong>
-             Path: <span class="text-terminal-green">/runner/runFromExcel.js</span>
+   └──▶ 📦 <strong>JavaScriptランナー読み込みエンジン</strong>
+             パス: <span class="text-terminal-green">/runner/runFromExcel.js</span>
 
    │
    ▼
-<span class="text-terminal-comment">[Phase 2: Configuration & Runtime Selector Checks]</span>
-🎛️  <strong>Dynamic Profile Interceptor Options:</strong>
-   ├── 🛡️ <strong>Execution UI Mode:</strong> 
-   │         ├── Headless Selected ──▶ 🖥️ Launch Custom Overlay (<span class="text-terminal-green">ProgressWindow.ps1</span>)
-   │         └── Headed Selected ───▶ 🌐 Instantiates Native Chromium / WebKit Instance
+<span class="text-terminal-comment">[フェーズ 2: 設定および実行環境チェック]</span>
+🎛️  <strong>動的プロファイルインターセプター（判定オプション）:</strong>
+   ├── 🛡️ <strong>UI実行モード設定:</strong> 
+   │         ├── ヘッドレス（Headless）選択時 ──▶ 🖥️ カスタムオーバーレイ表示 (<span class="text-terminal-green">ProgressWindow.ps1</span>)
+   │         └── 有頭（Headed）選択時 ──────▶ 🌐 ネイティブのChromium / WebKitインスタンスを起動
    │
-   ├── 📂 <strong>Target Source Mapping:</strong> Supports single file specs or recursive folder sweeps
-   │         └── Target Source: <span class="text-terminal-green">/tests/HLMS.xlsx</span> (Example Specs)
+   ├── 📂 <strong>対象ソースのマッピング:</strong> 単一のExcelファイルの指定、またはフォルダ内の再帰的スキャンに対応
+   │         └── 対象ソース例: <span class="text-terminal-green">/tests/HLMS.xlsx</span> (仕様書データ)
    │
-   ├── 🌐 <strong>Target Browser Context:</strong> Chrome, Edge, Firefox, or Safari Emulators
-   └── 📱 <strong>Device Type Lookup:</strong> Reads profile row maps to instantly override viewport/UA bounds
+   ├── 🌐 <strong>対象ブラウザコンテキスト:</strong> Chrome, Edge, Firefox, または Safari（エミュレータ）
+   └── 📱 <strong>デバイスタイプの照合:</strong> 行マップから設定を読み込み、ビューポートやユーザーエージェント（UA）を即座に上書き
 
    │
    ▼
-<span class="text-terminal-comment">[Phase 3: Core Step Matrix Execution Loop]</span>
-🔄 <strong>Parsing Matrix Loops: Extract Excel Rows Line-By-Line</strong>
+<span class="text-terminal-comment">[フェーズ 3: コア・ステップマトリクス実行ループ]</span>
+🔄 <strong>マトリクス解析ループ: Excelの行データを1行ずつ抽出して実行</strong>
    │
-   ├── 🚀 Run Step Actions (<code class="text-terminal-amber">Go To</code>, <code class="text-terminal-amber">Write</code>, <code class="text-terminal-amber">Click</code>, <code class="text-terminal-amber">Highlight</code>, etc.)
+   ├── 🚀 ステップアクションの実行 (<code class="text-terminal-amber">Go To</code>, <code class="text-terminal-amber">Write</code>, <code class="text-terminal-amber">Click</code>, <code class="text-terminal-amber">Highlight</code> など)
    │
-   └── 📝 <strong>Live Telemetry Monitors:</strong>
-             ├── 🧾 <strong>Streaming Console Logs</strong> ──▶ Live Terminal Trace
-             └── 🚨 <strong>Readable Error Handler</strong> ─▶ Translates browser stack anomalies into pure text
+   └── 📝 <strong>リアルタイム・テレメトリー監視:</strong>
+             ├── 🧾 <strong>ストリーミングコンソールログ</strong> ──▶ ターミナル上へのリアルタイムトレース出力
+             └── 🚨 <strong>エラーハンドラー</strong> ─▶ ブラウザの複雑なスタックエラーを人間が読みやすいテキストへ変換
 
    │
    ▼
-<span class="text-terminal-comment">[Phase 4: Artifact Compilation & Reporting Output Splits]</span>
-🏁 <strong>Execution Terminal Closure Wrap-Up</strong>
+<span class="text-terminal-comment">[フェーズ 4: 成果物コンパイル＆レポート出力出力処理]</span>
+🏁 <strong>実行ターミナルのクローズ・終了処理</strong>
    │
-   └──▶ 💾 <strong>Target Directory Array:</strong> <span class="text-terminal-green">/results/</span>
+   └──▶ 💾 <strong>出力先ディレクトリ:</strong> <span class="text-terminal-green">/results/</span>
              │
-             └──📂 <strong>[TestFile]_[YYYY_MM_DD-HHhmms]_results/</strong>
-                  ├── 📂 <strong>/downloads/</strong>      <span class="text-terminal-comment">// Contains downloaded blobs generated during execution</span>
-                  ├── 📂 <strong>/screenshots/</strong>    <span class="text-terminal-comment">// Asset caps captured (Named with corresponding TestCase key)</span>
-                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.html</strong>  <span class="text-terminal-comment">// Custom Web Dashboard</span>
-                  ├── 📄 <strong>[TestFile]_[Timestamp]_result.xlsx</strong>  <span class="text-terminal-comment">// Updated Results Sheet Matrix</span>
-                  └── 📄 <strong>[TestFile]_[Timestamp]_runLog.txt</strong>  <span class="text-terminal-comment">// Consolidated Trace Timeline Log</span></pre>
+             └──📂 <strong>[テストファイル名]_[YYYY_MM_DD-HHhmms]_results/</strong>
+                  ├── 📂 <strong>/downloads/</strong>      <span class="text-terminal-comment">// 実行中に生成・ダウンロードされた各種バイナリデータ</span>
+                  ├── 📂 <strong>/screenshots/</strong>    <span class="text-terminal-comment">// キャプチャ画像（対応するテストケースのキー名で保存）</span>
+                  ├── 📄 <strong>[テストファイル名]_[タイムスタンプ]_result.html</strong>  <span class="text-terminal-comment">// カスタムWebダッシュボード</span>
+                  ├── 📄 <strong>[テストファイル名]_[タイムスタンプ]_result.xlsx</strong>  <span class="text-terminal-comment">// 結果スタンプ適用済みのExcelマトリクス</span>
+                  └── 📄 <strong>[テストファイル名]_[タイムスタンプ]_runLog.txt</strong>  <span class="text-terminal-comment">// 集約されたトレースタイムラインログ</span></pre>
                 </div>
             </section>
 
             <section class="section-block">
                 <h2 class="section-title">
-                    <span class="section-index">05 /</span> Excel Row Schema Properties
+                    <span class="section-index">05 /</span> Excel行スキーマのプロパティ定義 (Excel Row Schema Properties)
                 </h2>
                 <p class="text-paragraph">
-                    The automation engine reads and interprets testing steps from Excel sheets dynamically based on the
-                    column headers and syntax validation rules defined below.
+                    本自動化エンジンは、以下に定義されたカラムヘッダー（列名）および構文検証ルールに基づき、Excelシートからテストステップを動的に読み込み、解釈・実行します。
                 </p>
 
                 <div>
                     <h3 class="inner-sub-heading">
-                        <span>📋</span> 1. Column Keys & Supported Action Types
+                        <span>📋</span> 1. 列キーと対応するアクションタイプ (Column Keys & Supported Actions)
                     </h3>
                     <p class="inner-description">
-                        The core engine maps rows using the exact columns specified in your test sheet headers:
+                        コアエンジンは、テストシートのヘッダーに指定された以下の正確な列名に基づいて、各行のマッピングを行います。
                     </p>
                     <div class="table-responsive-container">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th class="col-width-25">Key Header</th>
-                                    <th class="col-width-25">Data Type</th>
-                                    <th>Core Application Responsibility / Valid Keywords</th>
+                                    <th class="col-width-25">主要ヘッダー名</th>
+                                    <th class="col-width-25">データ型</th>
+                                    <th>アプリケーション内での役割 / 有効なキーワード</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -725,13 +710,12 @@
                                 <tr>
                                     <td class="text-bold-slate font-code-spec">Expected Outcome</td>
                                     <td><span class="type-badge">String</span></td>
-                                    <td>Defines the target validation check text or assertion condition state for report
-                                        tracking.</td>
+                                    <td>レポート追跡（アサーション）用に対象の検証テキスト、または期待される状態条件を定義します。</td>
                                 </tr>
                                 <tr>
                                     <td class="text-bold-slate font-code-spec">Device Type</td>
                                     <td><span class="type-badge">String</span></td>
-                                    <td>Controls target responsive execution layout width rules and agent strings.</td>
+                                    <td>対象ブラウザのレスポンシブ実行レイアウト幅のルール、およびユーザーエージェント（UA）文字列を制御します。</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -740,69 +724,76 @@
 
                 <div>
                     <h3 class="inner-sub-heading">
-                        <span>⚙️</span> 2. Selector Prefix Parsing Rules
+                        <span>⚙️</span> 2. セレクター接頭辞（Prefix）の解析ルール (Selector Prefix Parsing Rules)
                     </h3>
                     <p class="inner-description">
-                        The runner translates spreadsheet strings into native Playwright CSS/XPath locators via prefix
-                        parsing logic:
+                        ランナーは、接頭辞の解析ロジックを介して、スプレッドシート内の文字列をPlaywrightネイティブのCSS/XPathロケーターに変換します。
                     </p>
                     <div class="table-responsive-container">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th class="col-width-33">Excel Value Prefix Syntax</th>
-                                    <th class="col-width-33">Parsed Output Result</th>
-                                    <th>Target Matcher Context</th>
+                                    <th class="col-width-33">Excel内での記述構文</th>
+                                    <th class="col-width-33">解析後の出力結果</th>
+                                    <th>対象マッチャーのコンテキスト・補足</th>
                                 </tr>
                             </thead>
                             <tbody class="font-code-spec">
                                 <tr>
                                     <td class="syntax-indigo">text=Submit</td>
                                     <td class="syntax-emerald">text=Submit</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Direct
-                                            inner text content mapping.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">要素内のテキストコンテンツを直接マッピングします。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">id=username</td>
                                     <td class="syntax-emerald">#username</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Standard
-                                            CSS element ID selector conversion.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">標準的なCSSの要素IDセレクター（#）に変換されます。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">name=email</td>
                                     <td class="syntax-emerald">[name="email"]</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Standard
-                                            form element name attribute attribute block.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">フォーム要素等のname属性ブロックに変換されます。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">type=button</td>
                                     <td class="syntax-emerald">[type="button"]</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Element
-                                            element component type descriptor query.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">コンポーネントのtype属性記述を対象にクエリを行います。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">class=btn-primary</td>
                                     <td class="syntax-emerald">.btn-primary</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Standard
-                                            CSS element styling class dot shorthand conversion.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">標準的なCSSのクラスセレクター（.）表現に変換されます。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">placeholder=Enter ID</td>
                                     <td class="syntax-emerald">[placeholder="Enter ID"]</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Maps
-                                            input text components by placeholder strings directly.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">入力フォームのプレースホルダー文字列を直接マッピングします。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">xpath=//div[@id='app']</td>
                                     <td class="syntax-emerald">//div[@id='app']</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Strips
-                                            prefix string to pass XML paths down natively.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">接頭辞を除去し、XMLパス（XPath）をそのままネイティブに渡します。</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="syntax-indigo">fullxpath=//body/div/form</td>
                                     <td class="syntax-emerald">xpath=//body/div/form</td>
-                                    <td><span style="font-family: inherit; font-size: 0.75rem; color: #64748b;">Converts
-                                            full-length explicit trees to exact XPath selectors.</span></td>
+                                    <td><span
+                                            style="font-family: inherit; font-size: 0.75rem; color: #64748b;">絶対パス表現の明示的なツリー構造を、正確なXPathセレクターに変換します。</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -811,15 +802,15 @@
 
                 <div>
                     <h3 class="inner-sub-heading">
-                        <span>📱</span> 3. Device Emulation Mappings Matrix
+                        <span>📱</span> 3. デバイスエミュレーション・マッピングマトリクス (Device Emulation Mappings)
                     </h3>
                     <p class="inner-description">
-                        The platform supports responsive layout simulations. Pass any of these validated profile keys in
-                        the sheet's <code class="inline-code">Device Type</code> column:
+                        本プラットフォームはレスポンシブレイアウトのシミュレーションに対応しています。シートの <code class="inline-code">Device Type</code>
+                        列に、以下の検証済みプロファイルキーのいずれかを指定してください。
                     </p>
                     <div class="device-matrix-row">
                         <div class="device-column">
-                            <span class="device-column-title">🖥️ Desktop Profiles</span>
+                            <span class="device-column-title">🖥️ デスクトップ・プロファイル</span>
                             <ul class="device-list">
                                 <li>desktop chrome</li>
                                 <li>desktop chrome hidpi</li>
@@ -845,13 +836,13 @@
                                 <li>iphone 15 pro max</li>
                                 <li>iphone 14 / 13 / 12</li>
                                 <li>iphone x / xr / se</li>
-                                <li>ipad pro <span class="text-scale-caption">(Custom CSS scale)</span></li>
+                                <li>ipad pro <span class="text-scale-caption">(カスタムCSSスケール)</span></li>
                                 <li>ipad (gen 11 / 7 / 6)</li>
                                 <li>ipad mini</li>
                             </ul>
                         </div>
                         <div class="device-column">
-                            <span class="device-column-title">📟 Google Pixel & Legacy</span>
+                            <span class="device-column-title">📟 Google Pixel & 旧世代端末</span>
                             <ul class="device-list">
                                 <li>pixel 7 / 5 / 4 / 3</li>
                                 <li>pixel 2 xl</li>
@@ -863,10 +854,10 @@
                         </div>
                     </div>
                     <p class="text-[11px] text-slate-400 italic">
-                        * Append <code
-                            class="bg-slate-100 text-slate-700 px-0.5 rounded font-mono text-[10px]">landscape</code> to
-                        any mobile device name to tilt the emulation container context frame horizontally (e.g., <code
-                            class="text-indigo-600">galaxy a55 landscape</code>).
+                        * 任意のモバイルデバイス名の末尾に <code
+                            class="bg-slate-100 text-slate-700 px-0.5 rounded font-mono text-[10px]">landscape</code>
+                        を付与すると、エミュレーションのコンテキストフレームが横向き（ランドスケープ）に傾けられます（例: <code
+                            class="text-indigo-600">galaxy a55 landscape</code>）。
                     </p>
                 </div>
             </section>
@@ -874,28 +865,28 @@
             <!-- 6. Excel Spreadsheet Schema -->
             <section class="operational-walkthrough"
                 style="display: flex; flex-direction: column; gap: 2rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                <!-- セクションヘッダー -->
                 <div class="section-header" style="border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem;">
                     <h2
                         style="font-size: 1.125rem; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #64748b; padding-bottom: 0.5rem; margin: 0;">
-                        <span style="color: #4f46e5;">06 /</span> End-to-End Operational Walkthrough
+                        <span style="color: #4f46e5;">06 /</span> エンドツーエンド 運用ウォークスルー
                     </h2>
                     <p style="font-size: 0.875rem; color: #64748b; margin-top: 0.25rem; margin-bottom: 0;">
-                        A comprehensive, visual look at the test execution lifecycle, tracking data manipulation from
-                        configuration to artifact output generation.
+                        テスト実行のライフサイクルを視覚的に解説します。設定から成果物（レポート）の生成まで、データがどのように処理されるかをステップ順に追跡します。
                     </p>
                 </div>
 
+                <!-- ステップ 01 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         01
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Test Case Sheet
-                            Matrix Entry</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                            テストケース・シート（マトリクス）の入力</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            The framework maps workflows out of a target spreadsheet schema. Rows interpret execution
-                            instructions matching explicit step keywords (e.g.,
+                            フレームワークは、指定されたスプレッドシートのスキーマからワークフローをマッピングします。各行は、明示的なステップキーワード（例：
                             <code
                                 style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">Go To</code>,
                             <code
@@ -903,14 +894,12 @@
                             <code
                                 style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">Click</code>,
                             <code
-                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">Highlight</code>)
-                            alongside dynamic responsivity changes defined inside the <strong>Device Type</strong>
-                            column header.
+                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">Highlight</code>）
+                            に従って実行指示として解釈され、<strong>Device Type</strong> 列で定義されたレスポンシブなビューポート設定と連動します。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 36rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/excelEntry.png"
-                                alt="Excel Test Case Grid Entry Format Definition"
+                            <img class="zoomable-thumb" src="temp/excelEntry.png" alt="エクセルテストケース入力形式の定義"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
@@ -919,24 +908,23 @@
                     </div>
                 </div>
 
+                <!-- ステップ 02 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         02
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Pipeline
-                            Initialization via Runner Batch</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                            バッチファイルによるパイプラインの初期化</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            Triggering the system starts by double-clicking <code
+                            ワークスペースのルートディレクトリにある <code
                                 style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">runner.bat</code>
-                            in the directory workspace root. This launches a command-line wrapper that initializes the
-                            portable Node.js execution runtime context instantly.
+                            をダブルクリックしてシステムを起動します。これによりコマンドラインラッパーが立ち上がり、ポータブルな Node.js 実行環境が即座に初期化されます。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 28rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/clickRunner.png"
-                                alt="Trigger Runner Batch Execution Environment Link Tree"
+                            <img class="zoomable-thumb" src="temp/clickRunner.png" alt="ランナーバッチの実行"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
@@ -945,56 +933,56 @@
                     </div>
                 </div>
 
+                <!-- ステップ 03 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         03
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">UI Interception,
-                            File Mapping, & Browser Engine Configuration Selection Dialogs</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                            UIモード、ファイルマッピング、ブラウザエンジンの選択ダイアログ</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            The execution scripts launch structured interactive menu prompts across three sequential
-                            evaluation states:
+                            起動スクリプトを実行すると、対話形式のメニュープロンプトが表示され、以下の3つの設定を順番に選択します：
                         </p>
 
                         <div class="prompt-container"
                             style="max-width: 28rem; display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- プロンプト 1 -->
                             <div class="prompt-box"
                                 style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 0.625rem; display: flex; flex-direction: column; gap: 0.5rem;">
                                 <span class="prompt-label"
-                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #4f46e5; font-family: monospace; display: block;">Prompt
-                                    1: UI Mode</span>
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #4f46e5; font-family: system-ui; display: block;">プロンプト
+                                    1: UIモード選択</span>
                                 <div class="prompt-image-card"
                                     style="background-color: #ffffff; padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #f1f5f9;">
-                                    <img class="zoomable-thumb" src="temp/HeadChoose.png"
-                                        alt="Head Choice Flag Configuration Mode Check"
+                                    <img class="zoomable-thumb" src="temp/HeadChoose.png" alt="ヘッドレス/有頭モードの選択確認"
                                         style="width: 100%; border-radius: 0.25rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03); object-fit: contain; max-height: 140px; display: block;" />
                                 </div>
                             </div>
 
+                            <!-- プロンプト 2 -->
                             <div class="prompt-box"
                                 style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 0.625rem; display: flex; flex-direction: column; gap: 0.5rem;">
                                 <span class="prompt-label"
-                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #4f46e5; font-family: monospace; display: block;">Prompt
-                                    2: Target File</span>
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #4f46e5; font-family: system-ui; display: block;">プロンプト
+                                    2: 対象ファイル選択</span>
                                 <div class="prompt-image-card"
                                     style="background-color: #ffffff; padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #f1f5f9;">
-                                    <img class="zoomable-thumb" src="temp/FileChoose.png"
-                                        alt="Spreadsheet Test File Navigation Choice Selection Map"
+                                    <img class="zoomable-thumb" src="temp/FileChoose.png" alt="実行対象スプレッドシートの選択マップ"
                                         style="width: 100%; border-radius: 0.25rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03); object-fit: contain; max-height: 140px; display: block;" />
                                 </div>
                             </div>
 
+                            <!-- プロンプト 3 -->
                             <div class="prompt-box"
                                 style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 0.625rem; display: flex; flex-direction: column; gap: 0.5rem;">
                                 <span class="prompt-label"
-                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #4f46e5; font-family: monospace; display: block;">Prompt
-                                    3: Browser</span>
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #4f46e5; font-family: system-ui; display: block;">プロンプト
+                                    3: ブラウザ選択</span>
                                 <div class="prompt-image-card"
                                     style="background-color: #ffffff; padding: 0.25rem; border-radius: 0.5rem; border: 1px solid #f1f5f9;">
-                                    <img class="zoomable-thumb" src="temp/BrowserChoose.png"
-                                        alt="Browser Driver Pipeline Selection Interceptor Card"
+                                    <img class="zoomable-thumb" src="temp/BrowserChoose.png" alt="使用するブラウザドライバの選択"
                                         style="width: 100%; border-radius: 0.25rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03); object-fit: contain; max-height: 140px; display: block;" />
                                 </div>
                             </div>
@@ -1005,20 +993,19 @@
                     </div>
                 </div>
 
+                <!-- ステップ 04 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         04
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Active Test Runner
-                            Processing with Device Viewport Emulation</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                            テストの実行とデバイスビューポートのシミュレーション</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            The automation engine extracts individual test matrix lines, evaluates step criteria, and
-                            applies precise cross-device styling restrictions on the fly. Viewports are dynamically
-                            scaled to match precise mobile or desktop profile properties (e.g., matching <code
+                            自動化エンジンがマトリクスから1行ずつテストを抽出し、指定のステップ条件を評価しながら、各デバイスごとのレイアウト制限をリアルタイムに適用します。ビューポートは、設定されたモバイルまたはデスクトップのプロファイル（例：<code
                                 style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">ipad pro 11</code>
-                            layout rules).
+                            など）に合わせて自動的にスケーリングされます。
                         </p>
 
                         <div class="grid-layout" style="max-width: 48rem; display: flex; flex-wrap: wrap; gap: 1rem;">
@@ -1026,18 +1013,16 @@
                                 style="flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 0.25rem;">
                                 <span class="log-title"
                                     style="font-size: 10px; font-family: monospace; color: #94a3b8; font-weight: 700; display: block;">//
-                                    Terminal Stream Log Trace:</span>
-                                <img class="zoomable-thumb" src="temp/runningLog.png"
-                                    alt="Live Console Initialization Output Log Data Stream"
+                                    ターミナルのリアルタイムログ追跡:</span>
+                                <img class="zoomable-thumb" src="temp/runningLog.png" alt="コンソール出力のログストリームデータ"
                                     style="width: 100%; border: 1px solid #e2e8f0; border-radius: 0.75rem; object-fit: contain; max-height: 220px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); display: block;" />
                             </div>
                             <div class="grid-column"
                                 style="flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 0.25rem;">
                                 <span class="log-title"
                                     style="font-size: 10px; font-family: monospace; color: #94a3b8; font-weight: 700; display: block;">//
-                                    Live Emulator Viewport Container:</span>
-                                <img class="zoomable-thumb" src="temp/RunningAsDeviceType.jfif"
-                                    alt="Active App Viewport Frame Tracking Emulation Dimensions"
+                                    エミュレータのライブ画面監視:</span>
+                                <img class="zoomable-thumb" src="temp/RunningAsDeviceType.jfif" alt="実行中のアプリエミュレーション画面"
                                     style="width: 100%; border: 1px solid #e2e8f0; border-radius: 0.75rem; object-fit: contain; max-height: 220px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); display: block;" />
                             </div>
                         </div>
@@ -1047,25 +1032,22 @@
                     </div>
                 </div>
 
+                <!-- ステップ 05 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         05
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Consolidated Run
-                            Log Trace Asset Generation</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                            実行履歴ログ（テキスト形式トレース）の自動生成</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            A definitive text trace file (<code
-                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">..._runLog.txt</code>)
-                            writes to disk inside the timestamped output directory folder array block. It indexes
-                            sequential execution steps, active target strings, browser actions, and elapsed lifecycle
-                            time metrics.
+                            詳細な実行ログファイル（<code
+                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">..._runLog.txt</code>）が、タイムスタンプ付きの出力フォルダ内に自動保存されます。実行された手順、ターゲットとなった文字列、ブラウザの操作履歴、および経過時間が精緻に記録されます。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 36rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/runlogtxt.png"
-                                alt="Compiled RunLog Text Asset Record Tracking Stream"
+                            <img class="zoomable-thumb" src="temp/runlogtxt.png" alt="生成された実行ログテキストの記録"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
@@ -1074,23 +1056,23 @@
                     </div>
                 </div>
 
+                <!-- ステップ 06 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         06
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Multi-Channel
-                            Result Compilation Output Workspace</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">
+                            実行結果フォルダ（成果物パッケージ）の集約</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            Upon run termination, the framework creates a time-stamped directory under <code
-                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">/results/</code>.
-                            This packages image assets, downloads, and multiple structured file outputs together:
+                            テストが完了すると、フレームワークは <code
+                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">/results/</code>
+                            ディレクトリ配下に日時別のフォルダを作成します。キャプチャ画像、ダウンロードファイル、および複数のレポート形式がパッケージ化されて整理されます。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 36rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/Results.png"
-                                alt="Result Package Output Workspace Structural Folder Tree Map View"
+                            <img class="zoomable-thumb" src="temp/Results.png" alt="成果物フォルダのディレクトリ構造"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
@@ -1099,23 +1081,21 @@
                     </div>
                 </div>
 
+                <!-- ステップ 07 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         07
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Low-Level Console
-                            Captures Log Tab Tracking</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">ブラウザコンソール・ログのエラー追跡
+                        </h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            The framework isolates browser network streams and captures internal console errors,
-                            warnings, and standard info evaluations, rendering them inside a clean telemetry data tab
-                            block.
+                            システムはブラウザのネットワークストリームを監視し、実行中に発生した内部コンソールのエラー、警告、およびログ情報を捕捉して、テレメトリ用の専用データタブに分離して書き出します。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 36rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/ConsoleCapture.png"
-                                alt="Console Captures Telemetry Sheet View Display Log Output"
+                            <img class="zoomable-thumb" src="temp/ConsoleCapture.png" alt="コンソールログ取得シートのビュー"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
@@ -1124,23 +1104,22 @@
                     </div>
                 </div>
 
+                <!-- ステップ 08 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         08
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Updated Excel
-                            Results Matrix Compilation Sheet</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">テスト結果付き
+                            Excelマトリクスシートの書き出し</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            The core runner stamps test status values directly back into a duplicate copy of your
-                            tracking template sheet, outputting a clean sheet matrix labeled <code
-                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">..._result.xlsx</code>.
+                            テスト実行ランナーは、各ステップの成否ステータスを元の入力テンプレートのコピーに直接スタンプし、結果検証用の統合Excelファイル（<code
+                                style="font-family: monospace; background-color: #f1f5f9; padding: 0.125rem 0.25rem; border-radius: 0.25rem; color: #0f172a;">..._result.xlsx</code>）として保存します。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 36rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/excelResult.png"
-                                alt="Excel Spreadsheet Result Matrix Validation Tab Columns Map"
+                            <img class="zoomable-thumb" src="temp/excelResult.png" alt="Excel結果マトリクスシートの出力"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
@@ -1149,29 +1128,27 @@
                     </div>
                 </div>
 
+                <!-- ステップ 09 -->
                 <div class="step-card" style="position: relative; padding-left: 2rem;">
                     <div class="step-badge"
                         style="position: absolute; left: 0; top: 6px; width: 24px; height: 24px; border-radius: 50%; background-color: #eef2ff; border: 2px solid #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #4338ca; font-family: monospace; z-index: 2;">
                         09
                     </div>
                     <div class="step-content" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">Interactive HTML
-                            Report Dashboard Generation</h3>
+                        <h3 style="font-size: 0.875rem; font-weight: 700; color: #1e293b; margin: 0;">インタラクティブ
+                            HTMLレポートダッシュボード</h3>
                         <p style="font-size: 0.75rem; color: #475569; line-height: 1.625; margin: 0;">
-                            The web reporter combines structural tracking metadata, interactive dashboard navigation
-                            tabs, step status summaries, highlighted media screenshots, and low-level API split metrics
-                            within a single file dashboard:
+                            ウェブベースのレポーター機能により、実行メタデータ、インタラクティブなナビゲーションタブ、ステップ概要、ハイライトされたスクリーンショットメディア、低レベルAPIの測定指標を1ファイルに統合したダッシュボードレポートが生成されます。
                         </p>
                         <div class="image-wrapper"
                             style="max-width: 36rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; background-color: #ffffff; padding: 0.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
-                            <img class="zoomable-thumb" src="temp/HtmlResult.png"
-                                alt="HTML Report Dashboard Output UI Display Summary"
+                            <img class="zoomable-thumb" src="temp/HtmlResult.png" alt="HTMLレポートダッシュボードUIの表示要約"
                                 style="width: 100%; border-radius: 0.5rem; border: 1px solid #f1f5f9; object-fit: contain; max-height: 240px; display: block;" />
                         </div>
                     </div>
+                    <!-- 最終ステップのためタイムラインのコネクタ（縦線）は無し -->
                 </div>
             </section>
-
         </main>
 
         <!-- Footer -->
